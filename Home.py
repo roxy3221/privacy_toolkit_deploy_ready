@@ -33,7 +33,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Base64 embed of logo (must match filename)
-logo_base64 = base64.b64encode(open("Uoft_logo.png", "rb").read()).decode()
+logo_base64 = base64.b64encode(open("uoft_logo.png", "rb").read()).decode()
 st.markdown(
     f"""
     <div style='text-align: center;'>
