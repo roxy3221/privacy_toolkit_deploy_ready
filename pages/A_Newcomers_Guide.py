@@ -1,7 +1,5 @@
 import streamlit as st
 
-import streamlit as st
-
 st.set_page_config(page_title="A Newcomer’s Guide", layout="wide")
 
 st.markdown("""
