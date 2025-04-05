@@ -1,6 +1,6 @@
 import streamlit as st
 
-# --- Global styling for full-screen light blue ---
+# --- Full-screen light blue background + styling ---
 st.markdown("""
     <style>
         /* Make entire screen light blue */
@@ -9,16 +9,13 @@ st.markdown("""
             margin: 0;
             padding: 0;
         }
-        /* Use Georgia font */
         body {
             font-family: 'Georgia', serif;
         }
-        /* Optional container padding */
         .block-container {
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
-        /* Heading styling */
         h1 {
             font-size: 2em;
             color: #002145;
@@ -26,6 +23,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# --- Page Content ---
 st.title("About Us")
 
 st.write("""
@@ -38,4 +36,14 @@ st.header("Why We Made This")
 st.write("""
 Many newcomers are unaware of how their personal data can be used, shared, or misused in digital spaces.
 This project is our way of sharing knowledge, promoting safety, and making privacy accessible.
+""")
+
+st.header("Contact Us")
+st.write("""Email: [yanyue.zhang@mail.utoronto.ca](mailto:yanyue.zhang@mail.utoronto.ca)""")
+
+st.header("Our Vision")
+st.write("""
+We believe in empowering newcomers with the knowledge to
+protect themselves online, avoid scams, and navigate digital
+services safely in their new home.
 """)
