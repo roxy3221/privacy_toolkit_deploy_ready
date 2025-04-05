@@ -1,9 +1,8 @@
 import streamlit as st
 
-# --- Full-screen light blue background + styling ---
+# --- Global styling ---
 st.markdown("""
     <style>
-        /* Make entire screen light blue */
         html, body, .stApp {
             background-color: #F0F6FB !important;
             margin: 0;
@@ -23,8 +22,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Page Content ---
+# --- Page content ---
 st.title("About Us")
+
+# 📸 Display your image
+st.image("about-us.png", use_column_width=True)
 
 st.write("""
 We are students from the University of Toronto’s Privacy Studies course — 
@@ -40,10 +42,3 @@ This project is our way of sharing knowledge, promoting safety, and making priva
 
 st.header("Contact Us")
 st.write("""Email: [yanyue.zhang@mail.utoronto.ca](mailto:yanyue.zhang@mail.utoronto.ca)""")
-
-st.header("Our Vision")
-st.write("""
-We believe in empowering newcomers with the knowledge to
-protect themselves online, avoid scams, and navigate digital
-services safely in their new home.
-""")
