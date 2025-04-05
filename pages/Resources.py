@@ -1,41 +1,27 @@
 import streamlit as st
 
-
+# --- Global styling for full-screen light blue ---
 st.markdown("""
     <style>
+        /* Make entire screen light blue */
+        html, body, .stApp {
+            background-color: #F0F6FB !important;
+            margin: 0;
+            padding: 0;
+        }
+        /* Use Georgia font */
         body {
             font-family: 'Georgia', serif;
-            background-color: #F0F6FB;
         }
+        /* Optional container padding */
         .block-container {
-            background-color: #F0F6FB;
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
     </style>
 """, unsafe_allow_html=True)
 
-
-import streamlit as st
-
-
-st.markdown("""
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            background-color: #F0F6FB;
-        }
-        .block-container {
-            background-color: #F0F6FB;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-import streamlit as st
-
-
+# --- Page Content ---
 st.title("Resources")
 st.write("""
 Privacy is always important to keep in mind. Newcomers to Canada are often targeted by scammers because of language barriers,
@@ -98,23 +84,23 @@ topics = {
     }
 }
 
-# Render topic buttons
 st.subheader("Explore Topics")
 cols = st.columns(3)
 topic_keys = list(topics.keys())
+
 for i, key in enumerate(topic_keys):
     if cols[i % 3].button(key):
         st.session_state["selected_topic"] = key
 
 st.markdown("---")
 
-# Show section if one is selected
 selected_key = st.session_state.get("selected_topic")
 if selected_key and selected_key in topics:
     content = topics[selected_key]
     st.subheader(content["title"])
     st.markdown(f"**{content['problem']}**")
     st.write(content["description"])
+
     st.markdown("#### Suggested Resource")
     st.markdown(f"**[{content['resource']['title']}]({content['resource']['url']})**")
     st.write(content["resource"]["desc"])
