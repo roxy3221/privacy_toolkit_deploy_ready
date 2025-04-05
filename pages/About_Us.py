@@ -1,6 +1,6 @@
 import streamlit as st
 
-# --- Global styling ---
+# --- Full-screen light blue background + styling ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -25,8 +25,8 @@ st.markdown("""
 # --- Page content ---
 st.title("About Us")
 
-# 📸 Display your image
-st.image("about-us.png", use_column_width=True)
+# 📸 Smaller image with fixed width
+st.image("about-us.png", width=600)
 
 st.write("""
 We are students from the University of Toronto’s Privacy Studies course — 
