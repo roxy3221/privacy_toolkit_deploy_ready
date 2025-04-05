@@ -1,14 +1,10 @@
 import streamlit as st
 
-# --- Global styling for full-screen light blue ---
+# --- Page-wide CSS for styling ---
 st.markdown("""
     <style>
         html, body, .stApp {
             background-color: #F0F6FB !important;
-            margin: 0;
-            padding: 0;
-        }
-        body {
             font-family: 'Georgia', serif;
         }
         .block-container {
@@ -19,124 +15,108 @@ st.markdown("""
             border: 1px solid #ccc;
             border-radius: 10px;
             padding: 1rem;
-            margin-bottom: 1rem;
             background-color: white;
+            text-align: center;
+            transition: 0.3s;
         }
-        .resource-card a {
-            text-decoration: none;
-            font-weight: bold;
-            color: #002145;
+        .resource-card:hover {
+            border-color: #3B7EA1;
+            background-color: #E6F0F6;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# --- Page Content ---
+# --- Session state to manage subpage rendering ---
+if "resource_page" not in st.session_state:
+    st.session_state.resource_page = None
+
+# --- Main Header ---
 st.title("Resources")
 st.write("""
 Privacy is always important to keep in mind. Newcomers to Canada are often targeted by scammers because of language barriers,
 unfamiliarity with local systems, or urgent needs like finding jobs or settling immigration status.
-Below are curated topics that link to detailed resource pages.
+Below are tips to help you protect your privacy and a list of useful resources to explore.
 """)
-
 st.markdown("---")
 
-# --- Clickable Link Cards (for deployed app) ---
-base_url = "https://yourappname.streamlit.app"  # Replace with your deployed base URL
+# --- Resource Cards Navigation ---
+if st.session_state.resource_page is None:
+    st.subheader("Explore Topics")
 
-resources = [
-    {"title": "A Newcomer's Guide", "path": "A_Newcomers_Guide"},
-    {"title": "Staying Safe Online", "path": "Staying_Safe_Online"},
-    {"title": "How Police Use Your Data", "path": "How_Police_Use_Data"},
-    {"title": "Protecting Yourself from Scams", "path": "Protecting_Yourself"},
-    {"title": "Understanding AI in Canada", "path": "Understanding_AI"},
-]
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        if st.button("A Newcomer's Guide"):
+            st.session_state.resource_page = "newcomer"
+    with col2:
+        if st.button("Staying Safe Online"):
+            st.session_state.resource_page = "online"
+    with col3:
+        if st.button("How Police Use Your Data"):
+            st.session_state.resource_page = "police"
 
-for res in resources:
-    st.markdown(f"""
-    <div class='resource-card'>
-        <a href='{base_url}/{res['path']}' target='_blank'>{res['title']}</a>
-    </div>
-    """, unsafe_allow_html=True)
+    col4, col5, _ = st.columns(3)
+    with col4:
+        if st.button("Protecting Yourself from Scams"):
+            st.session_state.resource_page = "scams"
+    with col5:
+        if st.button("Understanding AI in Canada"):
+            st.session_state.resource_page = "ai"
 
-# --- Additional External Resources List ---
-st.markdown("---")
-st.subheader("Additional Resources")
+    st.markdown("---")
 
-resources_list = [
-    {
-        "title": "Canadian Anti-Fraud Centre",
-        "url": "https://antifraudcentre-centreantifraude.ca/index-eng.htm",
-        "desc": "Info on fraud and identity theft. Report if you're a victim!"
-    },
-    {
-        "title": "Data Detox Kit",
-        "url": "https://datadetoxkit.org/en/home",
-        "desc": "Guides about AI, digital privacy, wellbeing, misinformation, and more."
-    },
-    {
-        "title": "Privacy in Public Spaces (Edwards & Urquhart, 2016)",
-        "url": "https://doi.org/10.1093/ijlit/eaw007",
-        "desc": "Understanding open-source and social media intelligence used by law enforcement."
-    },
-    {
-        "title": "Canada's Anti-Spam Law (CASL)",
-        "url": "https://crtc.gc.ca/eng/internet/pub/20240930.htm",
-        "desc": "Know five common types of spam and how to avoid them."
-    },
-    {
-        "title": "Ensuring Your Privacy is Protected (IPC Ontario)",
-        "url": "https://www.ipc.on.ca/en/privacy-individuals/ensuring-your-privacy-is-protected",
-        "desc": "Tips to help you safeguard your privacy rights."
-    },
-    {
-        "title": "Digital Equity Report for Newcomers",
-        "url": "https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf",
-        "desc": "Challenges and solutions for digital access in immigrant services."
-    },
-    {
-        "title": "Free Help for Newcomers (YMCA)",
-        "url": "https://www.ymcagta.org/immigrant-services",
-        "desc": "Language training and cultural orientation services."
-    },
-    {
-        "title": "Meaningful Consent Guidelines (Canada)",
-        "url": "https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/",
-        "desc": "How companies must explain privacy terms clearly."
-    },
-    {
-        "title": "Guide on the Use of Generative AI",
-        "url": "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html",
-        "desc": "Safe, ethical use of AI tools by organizations."
-    },
-    {
-        "title": "Info Source: Personal Information Banks",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/info-source/personal-information-banks.html",
-        "desc": "How government agencies store and use your data."
-    },
-    {
-        "title": "National Cyber Threat Assessment (2025–26)",
-        "url": "https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026",
-        "desc": "Emerging threats like AI scams and supply chain attacks."
-    },
-    {
-        "title": "Language Classes (Government Funded)",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html",
-        "desc": "Government programs to help you learn English/French."
-    },
-    {
-        "title": "Newcomer Fraud Vulnerability (News)",
-        "url": "https://www.newcanadianmedia.ca/new-to-canada-beware-youre-twice-as-likely-to-become-a-fraud-victim-survey-reveals/",
-        "desc": "Survey: Newcomers are twice as likely to face fraud."
-    },
-    {
-        "title": "Responsible AI (Learning Together)",
-        "url": "https://ised-isde.canada.ca/site/advisory-council-artificial-intelligence/en/public-awareness-working-group/learning-together-responsible-artificial-intelligence",
-        "desc": "Teaches ethical AI use, especially avoiding racial bias in data."
-    }
-]
+# --- Subpage Content ---
+def back_button():
+    if st.button("🔙 Back to Resources"):
+        st.session_state.resource_page = None
 
-for res in resources_list:
-    st.markdown(f"""<p style='margin-bottom: 0.3rem;'>
-        <a href="{res['url']}" target="_blank" style="font-weight: bold; color: #002145;">{res['title']}</a><br>
-        <span style="color: #333;">{res['desc']}</span>
-    </p>""", unsafe_allow_html=True)
+if st.session_state.resource_page == "newcomer":
+    st.header("A Newcomer’s Guide to Healthcare, Privacy, and Jobs in Canada")
+    st.subheader("The Problem with Language Barriers")
+    st.write("""
+People who don’t speak English or French well may get worse healthcare. When doctors and patients can’t understand each other, it can lead to mistakes.
+
+**1. Healthcare: Why Language Matters**  
+- Ask for a professional interpreter  
+- Learn key health words  
+- Use free classes (LINC/CLIC)
+
+**2. Privacy Policies: Don’t Get Tricked**  
+- Always ask someone you trust to translate privacy forms  
+- Look for what data is collected, who it's shared with, and the risks
+
+**3. Jobs: Why Language Skills Are Key**  
+- Take free government language classes  
+- Practice job-specific terms  
+- Attend newcomer workshops
+
+**4. Free Language Classes: Your Path to Success**  
+- Qualify for LINC/CLIC if you're a permanent resident  
+- Find courses at Canada.ca or YMCA
+
+**Suggested Resources:**  
+- [Language Barriers in Access to Health Care](https://www.canada.ca/en/health-canada/services/health-care-system/reports-publications/health-care-accessibility/language-barriers.html)  
+- [Meaningful Consent Guidelines](https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/)  
+- [YMCA Newcomer Services](https://www.ymcagta.org/immigrant-services)  
+- [Canada Language Classes](https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html)
+""")
+    back_button()
+
+elif st.session_state.resource_page == "online":
+    st.header("Staying Safe Online")
+    st.write("Content coming soon...")
+    back_button()
+
+elif st.session_state.resource_page == "police":
+    st.header("How Police Use Your Data")
+    st.write("Content coming soon...")
+    back_button()
+
+elif st.session_state.resource_page == "scams":
+    st.header("Protecting Yourself from Scams")
+    st.write("Content coming soon...")
+    back_button()
+
+elif st.session_state.resource_page == "ai":
+    st.header("Understanding AI in Canada")
+    st.write("Content coming soon...")
+    back_button()
