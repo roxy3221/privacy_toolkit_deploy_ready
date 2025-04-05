@@ -1,6 +1,6 @@
 import streamlit as st
 
-# --- Page-wide CSS for styling ---
+# --- Global styling for full-screen light blue ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -11,112 +11,112 @@ st.markdown("""
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
-        .resource-card {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 1rem;
-            background-color: white;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .resource-card:hover {
-            border-color: #3B7EA1;
-            background-color: #E6F0F6;
-        }
     </style>
 """, unsafe_allow_html=True)
 
-# --- Session state to manage subpage rendering ---
-if "resource_page" not in st.session_state:
-    st.session_state.resource_page = None
-
-# --- Main Header ---
+# --- Page Content ---
 st.title("Resources")
 st.write("""
 Privacy is always important to keep in mind. Newcomers to Canada are often targeted by scammers because of language barriers,
 unfamiliarity with local systems, or urgent needs like finding jobs or settling immigration status.
 Below are tips to help you protect your privacy and a list of useful resources to explore.
 """)
+
 st.markdown("---")
 
-# --- Resource Cards Navigation ---
-if st.session_state.resource_page is None:
-    st.subheader("Explore Topics")
+# --- Topic Buttons ---
+topics = {
+    "A Newcomer's Guide": {
+        "title": "A Newcomer's Guide to Healthcare, Privacy, and Jobs in Canada",
+        "problem": "The Problem with Language Barriers",
+        "description": "People who don’t speak English or French well may get worse healthcare. When doctors and patients can’t understand each other, it can lead to mistakes. For example, a patient’s private health details might be shared with the wrong person, or a patient might agree to a treatment they don’t fully understand.",
+        "resource": {
+            "title": "Language Barriers in Access to Health Care",
+            "desc": "Explains how language gaps affect care quality and lists solutions like interpreter training.",
+            "url": "https://www.canada.ca/en/health-canada/services/health-care-system/reports-publications/health-care-accessibility/language-barriers.html"
+        }
+    },
+    "Staying Safe Online": {
+        "title": "Staying Safe Online",
+        "problem": "Recognizing Online Threats",
+        "description": "From phishing emails to fake websites, digital threats are common. Learn how to protect your identity while accessing services online.",
+        "resource": {
+            "title": "Get Cyber Safe Guide",
+            "desc": "Canada’s official guide for protecting yourself online from scams, fraud, and malware.",
+            "url": "https://www.getcybersafe.gc.ca/en"
+        }
+    },
+    "How Police Use Your Data": {
+        "title": "How Police Use Your Personal Data in Canada",
+        "problem": "Surveillance and Social Media Monitoring",
+        "description": "Immigration and police services may use social media activity and other digital data to monitor individuals. Understanding your rights and what you share online is key.",
+        "resource": {
+            "title": "Surveillance & Social Media Intelligence",
+            "desc": "Journal article exploring how law enforcement accesses and uses social media data.",
+            "url": "https://doi.org/10.1093/ijlit/eaw007"
+        }
+    },
+    "Protecting Yourself from Scams": {
+        "title": "Protecting Yourself from Scams",
+        "problem": "Common Scams Targeting Newcomers",
+        "description": "Scammers often impersonate government agencies like CRA or IRCC, demanding payments or threatening deportation.",
+        "resource": {
+            "title": "Canadian Anti-Fraud Centre",
+            "desc": "Learn how to spot scams and report them directly to Canada’s official anti-fraud agency.",
+            "url": "https://antifraudcentre-centreantifraude.ca/index-eng.htm"
+        }
+    },
+    "Understanding AI in Canada": {
+        "title": "Understanding AI and Digital Rights in Canada",
+        "problem": "Bias and Data Use in Automated Systems",
+        "description": "AI systems used in hiring, policing, or immigration decisions can reflect biases. It's important to understand how AI can affect your data and opportunities.",
+        "resource": {
+            "title": "Responsible AI Guidelines (Canada)",
+            "desc": "Outlines how AI should be developed and used fairly and transparently.",
+            "url": "https://ised-isde.canada.ca/site/advisory-council-artificial-intelligence/en/public-awareness-working-group/learning-together-responsible-artificial-intelligence"
+        }
+    }
+}
 
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        if st.button("A Newcomer's Guide"):
-            st.session_state.resource_page = "newcomer"
-    with col2:
-        if st.button("Staying Safe Online"):
-            st.session_state.resource_page = "online"
-    with col3:
-        if st.button("How Police Use Your Data"):
-            st.session_state.resource_page = "police"
+st.subheader("Explore Topics")
+cols = st.columns(3)
+topic_keys = list(topics.keys())
 
-    col4, col5, _ = st.columns(3)
-    with col4:
-        if st.button("Protecting Yourself from Scams"):
-            st.session_state.resource_page = "scams"
-    with col5:
-        if st.button("Understanding AI in Canada"):
-            st.session_state.resource_page = "ai"
+for i, key in enumerate(topic_keys):
+    if cols[i % 3].button(key):
+        st.session_state["selected_topic"] = key
 
-    st.markdown("---")
+st.markdown("---")
 
-# --- Subpage Content ---
-def back_button():
-    if st.button("🔙 Back to Resources"):
-        st.session_state.resource_page = None
+# --- Display selected topic ---
+selected_key = st.session_state.get("selected_topic")
+if selected_key and selected_key in topics:
+    content = topics[selected_key]
+    st.subheader(content["title"])
+    st.markdown(f"**{content['problem']}**")
+    st.write(content["description"])
 
-if st.session_state.resource_page == "newcomer":
-    st.header("A Newcomer’s Guide to Healthcare, Privacy, and Jobs in Canada")
-    st.subheader("The Problem with Language Barriers")
-    st.write("""
-People who don’t speak English or French well may get worse healthcare. When doctors and patients can’t understand each other, it can lead to mistakes.
+    st.markdown("#### Suggested Resource")
+    st.markdown(f"**[{content['resource']['title']}]({content['resource']['url']})**")
+    st.write(content["resource"]["desc"])
 
-**1. Healthcare: Why Language Matters**  
-- Ask for a professional interpreter  
-- Learn key health words  
-- Use free classes (LINC/CLIC)
+# --- Additional General Resources ---
+st.markdown("---")
+st.subheader("More Useful Resources")
 
-**2. Privacy Policies: Don’t Get Tricked**  
-- Always ask someone you trust to translate privacy forms  
-- Look for what data is collected, who it's shared with, and the risks
+extra_links = [
+    ("Data Detox Kit", "https://datadetoxkit.org/en/home"),
+    ("CASL: Anti-Spam Law", "https://crtc.gc.ca/eng/internet/pub/20240930.htm"),
+    ("Ensuring your privacy is protected", "https://www.ipc.on.ca/en/privacy-individuals/ensuring-your-privacy-is-protected"),
+    ("Digital Equity Report in Peel", "https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf"),
+    ("YMCA Newcomer Services", "https://www.ymcagta.org/immigrant-services"),
+    ("Government Language Classes", "https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html"),
+    ("Consent Guidelines", "https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/"),
+    ("Generative AI Guidelines", "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html"),
+    ("Personal Information Banks", "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/info-source/personal-information-banks.html"),
+    ("National Cyber Threat Assessment 2025-26", "https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026"),
+    ("New to Canada? Fraud Warning Article", "https://www.newcanadianmedia.ca/new-to-canada-beware-youre-twice-as-likely-to-become-a-fraud-victim-survey-reveals/")
+]
 
-**3. Jobs: Why Language Skills Are Key**  
-- Take free government language classes  
-- Practice job-specific terms  
-- Attend newcomer workshops
-
-**4. Free Language Classes: Your Path to Success**  
-- Qualify for LINC/CLIC if you're a permanent resident  
-- Find courses at Canada.ca or YMCA
-
-**Suggested Resources:**  
-- [Language Barriers in Access to Health Care](https://www.canada.ca/en/health-canada/services/health-care-system/reports-publications/health-care-accessibility/language-barriers.html)  
-- [Meaningful Consent Guidelines](https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/)  
-- [YMCA Newcomer Services](https://www.ymcagta.org/immigrant-services)  
-- [Canada Language Classes](https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html)
-""")
-    back_button()
-
-elif st.session_state.resource_page == "online":
-    st.header("Staying Safe Online")
-    st.write("Content coming soon...")
-    back_button()
-
-elif st.session_state.resource_page == "police":
-    st.header("How Police Use Your Data")
-    st.write("Content coming soon...")
-    back_button()
-
-elif st.session_state.resource_page == "scams":
-    st.header("Protecting Yourself from Scams")
-    st.write("Content coming soon...")
-    back_button()
-
-elif st.session_state.resource_page == "ai":
-    st.header("Understanding AI in Canada")
-    st.write("Content coming soon...")
-    back_button()
+for title, url in extra_links:
+    st.markdown(f"- [{title}]({url})")
