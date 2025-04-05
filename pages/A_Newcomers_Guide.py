@@ -1,19 +1,20 @@
 import streamlit as st
 
+import streamlit as st
+
+st.set_page_config(page_title="A Newcomer’s Guide", layout="wide")
+
 st.markdown("""
     <style>
         html, body, .stApp {
             background-color: #F0F6FB !important;
         }
-        body {
-            font-family: 'Georgia', serif;
-        }
-        .block-container {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
     </style>
 """, unsafe_allow_html=True)
+
+st.title("A Newcomer’s Guide to Healthcare, Privacy, and Jobs in Canada")
+
+# (your content continues here)
 
 st.title("A Newcomer’s Guide to Healthcare, Privacy, and Jobs in Canada")
 
