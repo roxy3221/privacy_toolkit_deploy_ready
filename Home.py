@@ -1,8 +1,10 @@
 import streamlit as st
 import base64
 
+# Page setup
 st.set_page_config(page_title="Privacy Toolkit", layout="wide")
 
+# Styling
 st.markdown("""
     <style>
         body {
@@ -30,16 +32,18 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Centered logo (user will replace the file)
-with open("Uoft_logo.png", "rb") as image_file:
-    logo_base64 = base64.b64encode(image_file.read()).decode()
-
-st.markdown(f"""
+# Base64 embed of logo (must match filename)
+logo_base64 = base64.b64encode(open("Uoft_logo.png", "rb").read()).decode()
+st.markdown(
+    f"""
     <div style='text-align: center;'>
         <img src='data:image/png;base64,{logo_base64}' width='180'>
     </div>
-""", unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
+# Title and intro
 st.markdown("<h1>Welcome to the Privacy Toolkit</h1>", unsafe_allow_html=True)
 
 st.write("""
@@ -50,6 +54,7 @@ avoid scams, and safely use digital services in their new life in Canada.
 st.markdown("---")
 st.subheader("What You’ll Find Here")
 
+# Section previews
 cols = st.columns(3)
 with cols[0]:
     st.markdown("<div class='section-box'><strong>Privacy Quiz</strong><br/>Test your knowledge with real-life scenarios and tips.</div>", unsafe_allow_html=True)
