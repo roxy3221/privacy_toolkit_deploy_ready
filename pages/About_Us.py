@@ -1,19 +1,32 @@
 import streamlit as st
 
-
 st.markdown("""
     <style>
+        html, body, .stApp {
+            background-color: #F0F6FB !important;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: 'Georgia', serif;
-            background-color: #F0F6FB;
         }
-        .block-container {
-            background-color: #F0F6FB;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+        h1 {
+            font-size: 2.75em;
+            color: #002145;
+            margin-bottom: 0.5em;
+        }
+        .section-box {
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 1rem;
+            background-color: #ffffff;
+            height: 100%;
         }
     </style>
 """, unsafe_allow_html=True)
+
+st.title("About Us")
+st.write("Any info about your team, contact, references, etc.")
 
 
 import streamlit as st
