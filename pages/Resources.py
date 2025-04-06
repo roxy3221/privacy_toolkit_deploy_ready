@@ -1,143 +1,96 @@
 import streamlit as st
 
-# --- Global styling ---
+# --- Styling ---
 st.markdown("""
     <style>
         html, body, .stApp {
-            background-color: #F0F6FB !important;
-        }
-        body {
+            background-color: #F0F6FB;
+            color: black;
             font-family: 'Georgia', serif;
-        }
-        * {
-            color: #000000 !important;
-        }
-        a {
-            color: #000000 !important;
-            text-decoration: none !important;
-        }
-        a:hover {
-            color: #000000 !important;
-            text-decoration: none !important;
         }
         .block-container {
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
-        .resource-card {
-            background-color: #ffffff;
-            border: 1px solid #d6d6d6;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.05);
-            transition: 0.3s ease-in-out;
-        }
-        .resource-card:hover {
-            border-color: #3778c2;
-            box-shadow: 3px 3px 12px rgba(55, 120, 194, 0.2);
-        }
-        .resource-title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 0.3rem;
-        }
-        .resource-desc {
-            font-size: 0.95rem;
-        }
-        .topic-card {
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            transition: 0.2s ease-in-out;
-        }
-        .topic-card:hover {
-            border-color: #1a508b;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        a {
+            text-decoration: none;
+            color: black;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# --- Page Content ---
+# --- Main Title ---
 st.title("Resources")
 
 st.write("""
-Privacy is always important to keep in mind. Newcomers to Canada are often targeted by scammers because of language barriers,
-unfamiliarity with local systems, or urgent needs like finding jobs or settling immigration status.
-Below are tips to help you protect your privacy and a list of useful resources to explore.
+Privacy is always important to keep in mind. Newcomers to Canada are often targeted by scammers because of language barriers, unfamiliarity with local systems, or urgent needs like finding jobs or settling immigration status. Below are tips to help you protect your privacy and a list of useful resources to explore.
 """)
 
 st.markdown("---")
 
-# --- Main 5 resource topics as subpages ---
-st.subheader("Explore Topics")
+# --- Subpage Links as Cards ---
+st.subheader("Explore Privacy Topics")
 
-topic_links = {
-    "A Newcomer's Guide": "https://privacy-toolkit-deploy-ready.streamlit.app/A_Newcomers_Guide",
-    "Staying Safe Online": "https://privacy-toolkit-deploy-ready.streamlit.app/Staying_Safe_Online",
-    "How Police Use Your Data": "https://privacy-toolkit-deploy-ready.streamlit.app/How_Police_Use_Your_Data",
-    "Protecting Yourself from Scams": "https://privacy-toolkit-deploy-ready.streamlit.app/Protecting_Yourself_from_Scams",
-    "Understanding AI in Canada": "https://privacy-toolkit-deploy-ready.streamlit.app/Understanding_AI_in_Canada",
-}
-
-cols = st.columns(2)
-for i, (topic, url) in enumerate(topic_links.items()):
-    with cols[i % 2]:
-        st.markdown(f"""
-        <a href="{url}" target="_blank">
-            <div class="topic-card">
-                <strong>{topic}</strong>
-            </div>
-        </a>
-        """, unsafe_allow_html=True)
-
-st.markdown("---")
-
-# --- Additional resource list ---
-st.subheader("🔗 Additional Privacy Resources")
-
-resources = [
-    ("Canadian Anti-Fraud Centre", "https://antifraudcentre-centreantifraude.ca/index-eng.htm",
-     "Scam alerts, fraud reporting, and identity theft info."),
-    ("Data Detox Kit", "https://datadetoxkit.org/en/home",
-     "Guides on AI, digital privacy, health data, and tech wellbeing."),
-    ("Privacy in Public Spaces", "https://doi.org/10.1093/ijlit/eaw007",
-     "How law enforcement uses social media and public data."),
-    ("CASL – Anti-Spam Law", "https://crtc.gc.ca/eng/internet/pub/20240930.htm",
-     "How to recognize and report spam or phishing."),
-    ("Protect Your Privacy (IPC)", "https://www.ipc.on.ca/en/privacy-individuals/ensuring-your-privacy-is-protected",
-     "Best practices for keeping your data private."),
-    ("Digital Equity for Newcomers", "https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf",
-     "Challenges and solutions in digital access for newcomers."),
-    ("YMCA: Help for Newcomers", "https://www.ymcagta.org/immigrant-services",
-     "Language training and support for immigrants."),
-    ("Consent Guidelines", "https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/",
-     "How companies should request and explain data consent."),
-    ("Gov’t AI Use Guide", "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html",
-     "Responsible and ethical use of generative AI."),
-    ("Info Source: Data Use", "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/info-source/personal-information-banks.html",
-     "What data Canadian agencies collect and why."),
-    ("Surveillance & Profiling (UofT)", "https://doi-org.myaccess.library.utoronto.ca/10.1093/ijlit/eaw007",
-     "How profiling and surveillance happen with digital data."),
-    ("Language Barriers in Health", "https://www.canada.ca/en/health-canada/services/health-care-system/reports-publications/health-care-accessibility/language-barriers.html",
-     "Healthcare access challenges for non-native speakers."),
-    ("Free Language Classes (LINC)", "https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html",
-     "Find free government-funded language courses."),
-    ("Responsible AI for Public", "https://ised-isde.canada.ca/site/advisory-council-artificial-intelligence/en/public-awareness-working-group/learning-together-responsible-artificial-intelligence",
-     "Public education around ethical AI use."),
-    ("National Cyber Threat Report", "https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026",
-     "Emerging cyber risks and prevention strategies."),
-    ("Newcomer Fraud Report", "https://www.newcanadianmedia.ca/new-to-canada-beware-youre-twice-as-likely-to-become-a-fraud-victim-survey-reveals/",
-     "Survey: Newcomers face 2x the risk of fraud.")
+resources_cards = [
+    {
+        "title": "A Newcomer's Guide to Healthcare, Privacy, and Jobs in Canada",
+        "desc": "Understand healthcare challenges, privacy risks, and job barriers newcomers face — and what you can do to stay protected.",
+        "url": "https://privacy-toolkit.streamlit.app/A_Newcomers_Guide"
+    },
+    {
+        "title": "Staying Safe Online",
+        "desc": "Learn how to avoid phishing, scams, and digital threats in daily life.",
+        "url": "https://privacy-toolkit.streamlit.app/Staying_Safe_Online"
+    },
+    {
+        "title": "How Police Use Your Data",
+        "desc": "Explore how authorities may access digital data and social media information.",
+        "url": "https://privacy-toolkit.streamlit.app/How_Police_Use_Your_Data"
+    },
+    {
+        "title": "Protecting Yourself from Scams",
+        "desc": "Recognize and avoid fraud schemes targeting newcomers.",
+        "url": "https://privacy-toolkit.streamlit.app/Protecting_Yourself_from_Scams"
+    },
+    {
+        "title": "Understanding AI in Canada",
+        "desc": "Learn how artificial intelligence affects your data and digital rights.",
+        "url": "https://privacy-toolkit.streamlit.app/Understanding_AI_in_Canada"
+    }
 ]
 
-# Render cards
-for title, link, desc in resources:
+for res in resources_cards:
     st.markdown(f"""
-        <div class="resource-card">
-            <div class="resource-title"><a href="{link}" target="_blank">{title}</a></div>
-            <div class="resource-desc">{desc}</div>
-        </div>
+    <div style='border:1px solid #ccc; border-radius:10px; padding:1rem; margin-bottom:1rem; background:#fff'>
+        <a href="{res['url']}" target="_blank">
+            <h4>{res['title']}</h4>
+            <p>{res['desc']}</p>
+        </a>
+    </div>
+    """, unsafe_allow_html=True)
+
+# --- Additional Resources Section ---
+st.subheader("Additional Useful Resources")
+
+additional_resources = [
+    ("Canadian Anti-Fraud Centre", "The Canadian Anti-Fraud Centre collects information on fraud and identity theft. Report scams here.", "https://antifraudcentre-centreantifraude.ca/index-eng.htm"),
+    ("Data Detox Kit", "Explore guides on AI, digital privacy, misinformation, and tech health.", "https://datadetoxkit.org/en/home"),
+    ("Enforcing Canada's Anti-Spam Legislation (CASL)", "Understand five common types of spam and how to report them.", "https://crtc.gc.ca/eng/internet/pub/20240930.htm"),
+    ("Ensuring Your Privacy is Protected", "Learn simple strategies to protect your personal information.", "https://www.ipc.on.ca/en/privacy-individuals/ensuring-your-privacy-is-protected"),
+    ("Exploring Digital Equity for Newcomer Services", "A report highlighting digital barriers and hybrid service solutions.", "https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf"),
+    ("Free Help for Newcomers - YMCA", "Offers free language training and orientation support.", "https://www.ymcagta.org/immigrant-services"),
+    ("Meaningful Consent Guidelines", "Guidelines to ensure you understand what you're agreeing to.", "https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/"),
+    ("Generative AI: Government Guide", "How to use AI tools ethically while protecting privacy.", "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html"),
+    ("Personal Information Banks", "See how the Canadian government stores and uses personal data.", "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/info-source/personal-information-banks.html"),
+    ("National Cyber Threat Assessment 2025-2026", "Learn about top emerging digital threats in Canada.", "https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026"),
+    ("Newcomer Fraud Risk Article", "Why newcomers are twice as likely to be scammed and how to stay safe.", "https://www.newcanadianmedia.ca/new-to-canada-beware-youre-twice-as-likely-to-become-a-fraud-victim-survey-reveals/")
+]
+
+for title, desc, url in additional_resources:
+    st.markdown(f"""
+    <div style='border-left:4px solid #337ab7; padding:0.5rem 1rem; margin-bottom:1rem;'>
+        <b>{title}</b><br>
+        <span style='font-size: 0.9rem'>{desc}</span><br>
+        <span style='font-size: 0.9rem; color:#555'>{url}</span>
+    </div>
     """, unsafe_allow_html=True)
