@@ -44,7 +44,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.markdown("""
     <div class="card">
-        <h4>🔓 Key Risks</h4>
+        <h4>Key Risks</h4>
         <ul>
             <li><strong>Unsecured networks:</strong> Public Wi-Fi can expose your personal data.</li>
             <li><strong>Fake websites/emails:</strong> Scammers may pose as IRCC or banks.</li>
@@ -56,7 +56,7 @@ with col1:
 with col2:
     st.markdown("""
     <div class="card">
-        <h4>🌍 Digital Equity & Inclusion</h4>
+        <h4>Digital Equity & Inclusion</h4>
         <p><strong>Digital Equity</strong> means everyone has access to key technology and internet.</p>
         <p><strong>Digital Inclusion</strong> ensures that disadvantaged communities — like newcomers — can use digital services safely.</p>
         <p><strong>Why This Matters:</strong></p>
@@ -70,7 +70,7 @@ with col2:
 
 st.markdown("""
 <div class="card">
-    <h4>🛡️ How to Protect Yourself</h4>
+    <h4>How to Protect Yourself</h4>
     <ul>
         <li><strong>Use Strong Passwords:</strong> Mix letters, numbers, and symbols (e.g., Sunshine2023!).</li>
         <li><strong>Avoid Public Wi-Fi:</strong> Don’t check banking or share info on open networks.</li>
