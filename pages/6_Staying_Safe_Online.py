@@ -11,17 +11,18 @@ st.markdown("""
         }
         .card {
             background-color: white;
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
         }
         .card h4 {
             margin-top: 0;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
         }
         .card p, .card li {
-            font-size: 0.96rem;
+            font-size: 0.88rem;
+            line-height: 1.5;
         }
         ul {
             padding-left: 1.2rem;
@@ -32,7 +33,7 @@ st.markdown("""
 # --- Title ---
 st.title("Staying Safe Online")
 
-# --- Card 1: Why Digital Safety Matters ---
+# --- Card 1 ---
 st.markdown("""
 <div class="card">
     <h4>Why Digital Safety Matters for Newcomers</h4>
@@ -41,7 +42,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# --- Card 2: Key Risks ---
+# --- Card 2 ---
 st.markdown("""
 <div class="card">
     <h4>Key Risks</h4>
@@ -53,7 +54,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# --- Card 3: Digital Equity & Inclusion ---
+# --- Card 3 ---
 st.markdown("""
 <div class="card">
     <h4>Digital Equity & Inclusion: What It Means for You</h4>
