@@ -52,29 +52,32 @@ st.write("Cybersecurity and digital equity are critical for newcomers navigating
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.markdown("### Key Risks")
     st.markdown("""
-- **Unsecured networks:** Public Wi-Fi (e.g., in cafes) can let hackers steal your data.  
-- **Fake websites/emails:** Scammers might pretend to be the government (like IRCC).  
-- **Data leaks:** Apps or services you use might accidentally expose your private info.  
-    """)
-    st.markdown("</div>", unsafe_allow_html=True)
+        <div class='card'>
+        <h3>🔍 Key Risks</h3>
+        <ul>
+            <li><strong>Unsecured networks:</strong> Public Wi-Fi (e.g., in cafes) can let hackers steal your data.</li>
+            <li><strong>Fake websites/emails:</strong> Scammers might pretend to be the government (like IRCC).</li>
+            <li><strong>Data leaks:</strong> Apps or services you use might accidentally expose your private information.</li>
+        </ul>
+        </div>
+    """, unsafe_allow_html=True)
 
 with col2:
-    st.markdown("<div class='card'>", unsafe_allow_html=True)
-    st.markdown("### Digital Equity & Inclusion")
     st.markdown("""
-**Digital Equity** means everyone can access the technology needed for jobs, education, and services.  
-**Digital Inclusion** ensures even disadvantaged groups (like newcomers) can use the internet safely.
-
-**Why This Matters:**  
-- You might miss job opportunities posted online.  
-- Lose important immigration updates.  
-- Miss out on virtual healthcare appointments.  
-    """)
-    st.markdown("</div>", unsafe_allow_html=True)
-
+        <div class='card'>
+        <h3>🌐 Digital Equity & Inclusion</h3>
+        <p><strong>Digital Equity</strong> means everyone can access the technology needed for jobs, education, and services.</p>
+        <p><strong>Digital Inclusion</strong> ensures even disadvantaged groups (like newcomers) can use the internet safely.</p>
+        <p><strong>Why This Matters:</strong></p>
+        <ul>
+            <li>Missing job opportunities</li>
+            <li>Losing immigration updates</li>
+            <li>Not accessing online healthcare</li>
+        </ul>
+        </div>
+    """, unsafe_allow_html=True)
+    
 # --- Step-by-Step Tips Section ---
 st.markdown("### 5 Smart Steps to Stay Secure")
 
@@ -83,6 +86,19 @@ st.markdown('<div class="tip"><h4>2. Avoid Public Wi-Fi for Banking</h4><p>Use m
 st.markdown('<div class="tip"><h4>3. Spot Scams</h4><p>Real government sites end in <code>.gc.ca</code>. IRCC will never call or email asking for money or passwords.</p></div>', unsafe_allow_html=True)
 st.markdown('<div class="tip"><h4>4. Keep Devices Updated</h4><p>Regular software updates fix security problems that hackers may use to break into your accounts.</p></div>', unsafe_allow_html=True)
 st.markdown('<div class="tip"><h4>5. Learn About Digital Safety</h4><p>Visit <a href="https://www.getcybersafe.gc.ca/en" target="_blank">Get Cyber Safe</a> for tips in many languages.</p></div>', unsafe_allow_html=True)
+
+st.markdown("""
+<div class='card'>
+    <h3>🛡️ How to Protect Yourself</h3>
+    <ul style="font-size: 0.95rem; line-height: 1.6;">
+        <li><strong>Use Strong Passwords:</strong> Mix letters, numbers, and symbols (e.g., Sunshine2023!).</li>
+        <li><strong>Avoid Public Wi-Fi:</strong> Don’t check banking or share info on open networks.</li>
+        <li><strong>Spot Scams:</strong> IRCC will never email or call asking for money or passwords.</li>
+        <li><strong>Keep Software Updated:</strong> Regular updates prevent hacking.</li>
+        <li><strong>Learn More:</strong> Explore <a href="https://www.getcybersafe.gc.ca/en" target="_blank">Get Cyber Safe</a> for multilingual tips.</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
 
 # --- Suggested Resources ---
 st.markdown("### Suggested Resources")
