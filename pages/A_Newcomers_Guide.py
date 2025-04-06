@@ -24,6 +24,12 @@ st.markdown("""
         a:hover {
             text-decoration: underline !important;
         }
+        /* Upgrade expander headers */
+        .streamlit-expanderHeader {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #002145;
+        }
     </style>
 """, unsafe_allow_html=True)
 
