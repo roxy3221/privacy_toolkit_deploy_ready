@@ -52,9 +52,9 @@ st.markdown('<div class="section-title">Toolkit Goals</div>', unsafe_allow_html=
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown('<div class="goal-box">Help newcomers understand their privacy rights in Canada</div>', unsafe_allow_html=True)
-    st.markdown('<div class="goal-box">Provide tools for secure communication and online navigation</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">1.Help newcomers understand their privacy rights in Canada</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">2.Provide tools for secure communication and online navigation</div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="goal-box">Increase awareness of data collection and digital safety</div>', unsafe_allow_html=True)
-    st.markdown('<div class="goal-box">Reduce risks tied to fraud, discrimination, or misinformation</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">3.Increase awareness of data collection and digital safety</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">4.Reduce risks tied to fraud, discrimination, or misinformation</div>', unsafe_allow_html=True)
