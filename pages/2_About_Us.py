@@ -19,14 +19,31 @@ st.markdown("""
             font-size: 2em;
             color: #002145;
         }
+        .photo-row {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0 2.5rem 0;
+        }
+        .photo-row img {
+            border-radius: 10px;
+            max-width: 250px;
+            height: auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
     </style>
 """, unsafe_allow_html=True)
 
 # --- Page content ---
 st.title("About Us")
 
-# 📸 Smaller image with fixed width
-st.image("about-us.png", width=600)
+# Display photos of Yanyue and Megan side by side
+st.markdown("""
+<div class="photo-row">
+    <img src="Roxy.JPG" alt="Yanyue Zhang">
+    <img src="Megan.JPG" alt="Megan Luo">
+</div>
+""", unsafe_allow_html=True)
 
 st.write("""
 We are students from the University of Toronto’s Privacy Studies course — 
