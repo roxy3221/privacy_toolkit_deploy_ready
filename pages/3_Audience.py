@@ -33,7 +33,7 @@ This digital privacy toolkit is primarily designed for **newcomers to Canada**, 
 """)
 
 st.markdown("---")
-st.markdown('<div class="section-title">3.1 Primary Audience: New Immigrants (Ages 18–55)</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Primary Audience: New Immigrants (Ages 18–55)</div>', unsafe_allow_html=True)
 
 st.markdown("""
 <div class="audience-box">
@@ -46,7 +46,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="section-title">3.2 Secondary & Tertiary Audiences</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Secondary & Tertiary Audiences</div>', unsafe_allow_html=True)
 
 st.markdown("""
 <div class="audience-box">
