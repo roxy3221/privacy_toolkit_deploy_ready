@@ -45,26 +45,59 @@ Canada faces growing cyber threats, like hackers attacking banks, hospitals, or 
 
 ---
 
-### How to Protect Yourself
+# --- Styling for clean-centered layout ---
+st.markdown("""
+    <style>
+        .centered-box {
+            background-color: white;
+            padding: 2rem;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+        }
+        .centered-box h3 {
+            font-size: 28px;
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+        }
+        .centered-box p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .centered-box ol {
+            padding-left: 1.2rem;
+        }
+    </style>
+""", unsafe_allow_html=True)
 
-**1. Use Strong Passwords**  
-Create passwords with letters, numbers, and symbols (e.g., Sunshine2023!).  
-Never reuse passwords for multiple accounts.
+# --- Main centered block ---
+st.markdown('<div class="centered-box">', unsafe_allow_html=True)
 
-**2. Avoid Public Wi-Fi for Sensitive Tasks**  
-Don’t check bank accounts or share personal info on café/airport Wi-Fi. Use mobile data instead.
+st.markdown("### How to Protect Yourself", unsafe_allow_html=True)
 
-**3. Spot Scams**  
-Government agencies (like IRCC) will never call or email asking for money or passwords.  
-Check website URLs: Scammers use fake links like `IRCC-service.ca` (real site: `Canada.ca`).
+st.markdown("""
+<ol>
+<li><b>Use Strong Passwords</b><br>
+Create passwords with letters, numbers, and symbols (e.g., Sunshine2023!).<br>
+Never reuse passwords for multiple accounts.</li>
 
-**4. Keep Software Updated**  
-Update your phone, computer, and apps regularly to fix security gaps.
+<li><b>Avoid Public Wi-Fi for Sensitive Tasks</b><br>
+Don’t check bank accounts or share personal info on café/airport Wi-Fi. Use mobile data instead.</li>
 
-**5. Learn About Digital Safety**  
-Visit [Get Cyber Safe](https://www.getcybersafe.gc.ca/en) for tips in multiple languages.
+<li><b>Spot Scams</b><br>
+Government agencies (like IRCC) will never call or email asking for money or passwords.<br>
+Check website URLs: Scammers use fake links like <code>IRCC-service.ca</code> (real site: <code>Canada.ca</code>).</li>
 
----
+<li><b>Keep Software Updated</b><br>
+Update your phone, computer, and apps regularly to fix security gaps.</li>
+
+<li><b>Learn About Digital Safety</b><br>
+Visit <a href="https://www.getcybersafe.gc.ca/en" target="_blank">Get Cyber Safe</a> for tips in multiple languages.</li>
+</ol>
+""", unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 ### Suggested Resources
 
