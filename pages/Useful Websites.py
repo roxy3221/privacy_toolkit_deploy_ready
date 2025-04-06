@@ -44,7 +44,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Page Title & Intro ---
-st.title("Resources")
+st.title("Useful Resources")
 st.write("""
 Privacy is always important to keep in mind. Newcomers to Canada are often targeted by scammers 
 because of language barriers, unfamiliarity with local systems, or urgent needs like finding jobs 
