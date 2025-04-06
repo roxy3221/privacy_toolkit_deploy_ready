@@ -1,66 +1,60 @@
 import streamlit as st
 
-
+# --- Styling ---
 st.markdown("""
     <style>
-        body {
+        html, body, .stApp {
+            background-color: #F0F6FB;
             font-family: 'Georgia', serif;
-            background-color: #F0F6FB;
         }
-        .block-container {
-            background-color: #F0F6FB;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-top: 2rem;
+        }
+        .goal-box {
+            background-color: white;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+            margin-bottom: 1rem;
+        }
+        .goal-list {
+            margin-left: 1rem;
         }
     </style>
 """, unsafe_allow_html=True)
 
-
-import streamlit as st
-
-
-st.markdown("""
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            background-color: #F0F6FB;
-        }
-        .block-container {
-            background-color: #F0F6FB;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-import streamlit as st
-
-
+# --- Content ---
 st.title("Audience Overview")
 
 st.write("""
 This digital privacy toolkit is designed for **newcomers to Canada** — including immigrants, refugees, international students, and other newly arrived residents.
+
 We understand that settling in a new country comes with unique challenges, especially when navigating online services, legal systems, and digital safety.
 """)
 
 st.markdown("---")
-st.header("Why This Matters")
+st.markdown('<div class="section-title">Why This Matters</div>', unsafe_allow_html=True)
 
 st.write("""
 Newcomers are more vulnerable to:
-- **Scams** targeting people unfamiliar with Canadian systems
-- **Language barriers** that affect healthcare, legal consent, or job applications
-- **Overexposure of personal information** through forms, apps, or public networks
-- **Digital surveillance** or misinformation that may not be easy to detect
+- Scams targeting people unfamiliar with Canadian systems
+- Language barriers that affect healthcare, legal consent, or job applications
+- Overexposure of personal information through forms, apps, or public networks
+- Digital surveillance or misinformation that may not be easy to detect
 
 This toolkit provides trustworthy information in accessible language to help you take control of your digital life in Canada.
 """)
 
 st.markdown("---")
-st.header("Toolkit Goals")
+st.markdown('<div class="section-title">Toolkit Goals</div>', unsafe_allow_html=True)
 
-cols = st.columns(2)
-cols[0].write("✅ Help newcomers understand their privacy rights in Canada")
-cols[0].write("✅ Provide tools for secure communication and online navigation")
-cols[1].write("✅ Increase awareness of data collection and digital safety")
-cols[1].write("✅ Reduce risks tied to fraud, discrimination, or misinformation")
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown('<div class="goal-box">Help newcomers understand their privacy rights in Canada</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">Provide tools for secure communication and online navigation</div>', unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<div class="goal-box">Increase awareness of data collection and digital safety</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">Reduce risks tied to fraud, discrimination, or misinformation</div>', unsafe_allow_html=True)
