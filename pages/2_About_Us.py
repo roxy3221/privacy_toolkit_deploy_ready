@@ -1,6 +1,6 @@
 import streamlit as st
 
-# --- Full-screen light blue background + styling ---
+# --- Styling ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -8,28 +8,10 @@ st.markdown("""
             margin: 0;
             padding: 0;
         }
-        body {
-            font-family: 'Georgia', serif;
-        }
-        .block-container {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-        h1 {
-            font-size: 2em;
-            color: #002145;
-        }
-        .photo-row {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0 2.5rem 0;
-        }
-        .photo-row img {
-            border-radius: 10px;
-            max-width: 250px;
-            height: auto;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .photo-names {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-weight: bold;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -37,13 +19,14 @@ st.markdown("""
 # --- Page content ---
 st.title("About Us")
 
-# Display photos of Yanyue and Megan side by side
-st.markdown("""
-<div class="photo-row">
-    <img src="Roxy.JPG" alt="Yanyue Zhang">
-    <img src="Megan.JPG" alt="Megan Luo">
-</div>
-""", unsafe_allow_html=True)
+# --- Display photos using st.columns for layout ---
+col1, col2 = st.columns(2)
+
+with col1:
+    st.image("Roxy.JPG", caption="Yanyue Zhang", width=250)
+
+with col2:
+    st.image("Megan.JPG", caption="Megan Luo", width=250)
 
 st.write("""
 We are students from the University of Toronto’s Privacy Studies course — 
