@@ -29,7 +29,7 @@ st.markdown("""
 st.title("Audience Overview")
 
 st.write("""
-This digital privacy toolkit is primarily designed for **newcomers to Canada**, including immigrants, refugees, international students, and other recently arrived residents.
+This digital privacy toolkit is designed for **newcomers to Canada**, including immigrants, refugees, international students, and other recently arrived residents.
 """)
 
 st.markdown("---")
@@ -38,11 +38,11 @@ st.markdown('<div class="section-title">Primary Audience: New Immigrants (Ages 1
 st.markdown("""
 <div class="audience-box">
 <ul>
-    <li>Often unfamiliar with Canadian digital laws & systems</li>
-    <li>Vulnerable to scams, data misuse, and uninformed consent</li>
-    <li>Regularly required to share sensitive info (e.g., immigration, jobs, banking)</li>
+    <li>Often unfamiliar with Canadian digital systems and privacy laws</li>
+    <li>More likely to face scams, data misuse, or lack of informed consent</li>
+    <li>Frequently asked to share sensitive data for immigration, jobs, or banking</li>
 </ul>
-<b>This toolkit empowers informed, confident digital decisions.</b>
+<b>The toolkit supports safer, more confident digital choices.</b>
 </div>
 """, unsafe_allow_html=True)
 
@@ -51,10 +51,10 @@ st.markdown('<div class="section-title">Secondary & Tertiary Audiences</div>', u
 st.markdown("""
 <div class="audience-box">
 <ul>
-    <li><b>Settlement workers & librarians:</b> Use the toolkit in digital literacy programs</li>
-    <li><b>Educators & support staff:</b> Reinforce trust and understanding</li>
-    <li><b>Policy makers & advocacy groups:</b> Promote broader inclusion and funding</li>
-    <li><b>Mental health advocates:</b> Recognize digital safety as part of well-being</li>
+    <li><b>Settlement workers & librarians:</b> Use toolkit in digital literacy programs</li>
+    <li><b>Educators & support staff:</b> Help reinforce understanding and trust</li>
+    <li><b>Policy makers & advocates:</b> Support inclusive, safer digital spaces</li>
+    <li><b>Mental health professionals:</b> Recognize privacy as part of well-being</li>
 </ul>
 </div>
 """, unsafe_allow_html=True)
@@ -64,9 +64,9 @@ st.markdown('<div class="section-title">Toolkit Goals</div>', unsafe_allow_html=
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown('<div class="goal-box">✅ Help newcomers understand their privacy rights in Canada</div>', unsafe_allow_html=True)
-    st.markdown('<div class="goal-box">✅ Provide tools for secure communication and online navigation</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">Help newcomers understand privacy rights in Canada</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">Provide tools for safe digital communication</div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="goal-box">✅ Increase awareness of data collection and digital safety</div>', unsafe_allow_html=True)
-    st.markdown('<div class="goal-box">✅ Reduce risks tied to fraud, discrimination, or misinformation</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">Increase awareness of data safety and rights</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">Reduce risks of fraud, exclusion, and harm</div>', unsafe_allow_html=True)
