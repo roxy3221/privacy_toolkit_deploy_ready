@@ -7,7 +7,6 @@ st.set_page_config(page_title="Privacy Toolkit", layout="wide")
 # Styling
 st.markdown("""
     <style>
-        /* Force light blue background on the entire screen */
         html, body, .stApp {
             background-color: #F0F6FB !important;
             margin: 0;
@@ -18,10 +17,26 @@ st.markdown("""
             font-family: 'Georgia', serif;
         }
 
-        h1 {
+        .typewriter {
             font-size: 2.75em;
             color: #002145;
-            margin-bottom: 0.5em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #002145;
+            width: 0;
+            animation: typing 3s steps(40, end) forwards, blink 1s infinite;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent }
         }
 
         .section-box {
@@ -34,7 +49,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Base64 embed of logo (must match filename)
+# UofT Logo
 logo_base64 = base64.b64encode(open("uoft_logo.png", "rb").read()).decode()
 st.markdown(
     f"""
@@ -45,9 +60,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Title and intro
-st.markdown("<h1>Welcome to the Privacy Toolkit</h1>", unsafe_allow_html=True)
+# Animated Title
+st.markdown("<div class='typewriter'>Welcome to the Privacy Toolkit</div>", unsafe_allow_html=True)
 
+# Intro
 st.write("""
 This toolkit helps newcomers to Canada understand privacy rights, protect their personal data,
 avoid scams, and safely use digital services in their new life in Canada.
