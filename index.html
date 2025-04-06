@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Toolkit Homepage</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F0F6FB;
+            color: #002145;
+        }
+        .container {
+            max-width: 900px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+        }
+        .scrolling-text {
+            font-size: 1.2rem;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+            animation: scroll-left 15s linear infinite;
+            color: #333;
+            margin: 1rem 0;
+        }
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .button-link {
+            display: inline-block;
+            background-color: #002145;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+        }
+        .button-link:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Privacy Toolkit</h1>
+        <div class="scrolling-text">Empowering newcomers in Canada to protect their digital privacy, avoid scams, and understand their rights.</div>
+        <p>This toolkit supports immigrants, students, and new residents in navigating digital systems in Canada safely.</p>
+        <a class="button-link" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">Enter the Toolkit</a>
+    </div>
+</body>
+</html>
