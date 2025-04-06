@@ -67,9 +67,6 @@ for res in resources:
         </div>
         """, unsafe_allow_html=True)
 
-st.markdown("---")
-st.subheader("Additional Resource List")
-st.write("More trusted links and references can be found at the bottom of each topic page.")
 
 # --- Additional Resources Section ---
 st.markdown("## Additional Privacy Resources")
