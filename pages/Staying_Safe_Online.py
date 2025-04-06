@@ -1,103 +1,82 @@
 import streamlit as st
 
-# --- Styling ---
+# Set page config
+st.set_page_config(page_title="Staying Safe Online", layout="wide")
+
+# Global styling
 st.markdown("""
     <style>
         html, body, .stApp {
-            background-color: #F0F6FB !important;
-            color: black !important;
+            background-color: #F0F6FB;
             font-family: 'Georgia', serif;
-        }
-        .block-container {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            max-width: 900px;
-            margin: auto;
-        }
-        h1, h2, h3, h4, h5 {
-            color: #002145;
         }
         .card {
             background-color: white;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.06);
+            margin-bottom: 2rem;
+        }
+        .title {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .section-header {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        ul {
+            padding-left: 1.2rem;
         }
     </style>
 """, unsafe_allow_html=True)
 
-st.title("Staying Safe Online")
+# Page title
+st.markdown("<div class='title'>Staying Safe Online</div>", unsafe_allow_html=True)
+st.write("Cybersecurity and digital equity are critical for newcomers navigating life in Canada.")
 
-st.header("Why Digital Safety Matters for Newcomers")
-st.write("""
-Canada faces growing cyber threats, like hackers attacking banks, hospitals, or government services.
-These attacks can disrupt daily life — for example, freezing online banking or shutting down hospital systems.
-
-As a newcomer, you may rely heavily on the internet for jobs, healthcare, and staying connected. 
-But not all websites or apps are safe, and your personal data (like passwords or bank details) could be stolen if you’re not careful.
-""")
-
-# --- Card-like sections ---
+# Row of 2 side-by-side cards
 col1, col2 = st.columns(2)
 
+# Card 1: Key Risks
 with col1:
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("### Key Risks")
     st.markdown("""
-    <div class="card">
-        <h4>Key Risks</h4>
-        <ul>
-            <li><strong>Unsecured networks:</strong> Public Wi-Fi can expose your personal data.</li>
-            <li><strong>Fake websites/emails:</strong> Scammers may pose as IRCC or banks.</li>
-            <li><strong>Data leaks:</strong> Poorly secured apps may expose your info.</li>
-        </ul>
-    </div>
-    """, unsafe_allow_html=True)
+    - **Unsecured networks:** Public Wi-Fi can expose your personal data.  
+    - **Fake websites/emails:** Scammers may pose as IRCC or banks.  
+    - **Data leaks:** Poorly secured apps may expose your info.  
+    """)
+    st.markdown("</div>", unsafe_allow_html=True)
 
+# Card 2: Digital Equity
 with col2:
+    st.markdown("<div class='card'>", unsafe_allow_html=True)
+    st.markdown("### Digital Equity & Inclusion")
     st.markdown("""
-    <div class="card">
-        <h4>Digital Equity & Inclusion</h4>
-        <p><strong>Digital Equity</strong> means everyone has access to key technology and internet.</p>
-        <p><strong>Digital Inclusion</strong> ensures that disadvantaged communities — like newcomers — can use digital services safely.</p>
-        <p><strong>Why This Matters:</strong></p>
-        <ul>
-            <li>Missing job opportunities</li>
-            <li>Losing immigration updates</li>
-            <li>Not accessing online healthcare</li>
-        </ul>
-    </div>
-    """, unsafe_allow_html=True)
+    **Digital Equity** means everyone has access to key technology and internet.  
+    **Digital Inclusion** ensures that disadvantaged communities — like newcomers — can use digital services safely.
 
+    **Why This Matters:**  
+    - Missing job opportunities  
+    - Losing immigration updates  
+    - Not accessing online healthcare  
+    """)
+    st.markdown("</div>", unsafe_allow_html=True)
+
+# Spacer
+st.write("")
+
+# Full-width Card: Protection Steps
+st.markdown("<div class='card'>", unsafe_allow_html=True)
+st.markdown("### How to Protect Yourself")
 st.markdown("""
-<div class="card">
-    <h4>How to Protect Yourself</h4>
-    <ul>
-        <li><strong>Use Strong Passwords:</strong> Mix letters, numbers, and symbols (e.g., Sunshine2023!).</li>
-        <li><strong>Avoid Public Wi-Fi:</strong> Don’t check banking or share info on open networks.</li>
-        <li><strong>Spot Scams:</strong> IRCC will never email or call asking for money or passwords.</li>
-        <li><strong>Keep Software Updated:</strong> Regular updates prevent hacking.</li>
-        <li><strong>Learn More:</strong> Explore <a href="https://www.getcybersafe.gc.ca/en" target="_blank">Get Cyber Safe</a> for multilingual tips.</li>
-    </ul>
-</div>
-""", unsafe_allow_html=True)
-
-st.markdown("---")
-
-st.subheader("2.2.1 Suggested Resources")
-
-resources = [
-    {
-        "title": "National Cyber Threat Assessment 2025-2026",
-        "url": "https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026",
-        "desc": "Outlines emerging cyber risks, like attacks on supply chains or AI-driven scams."
-    },
-    {
-        "title": "Exploring Digital Equity for Newcomer Services",
-        "url": "https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf",
-        "desc": "Highlights challenges newcomers face in accessing digital tools and recommends hybrid (online + in-person) services."
-    }
-]
-
-for res in resources:
-    st.markdown(f"**[{res['title']}]({res['url']})**  \n{res['desc']}")
-    st.write("")
+- **Use Strong Passwords:** Mix letters, numbers, and symbols (e.g., Sunshine2023!).  
+- **Avoid Public Wi-Fi:** Don’t check banking or share info on open networks.  
+- **Spot Scams:** IRCC will never email or call asking for money or passwords.  
+- **Keep Software Updated:** Regular updates prevent hacking.  
+- **Learn More:** Explore [Get Cyber Safe](https://www.getcybersafe.gc.ca/en) for multilingual tips.  
+""")
+st.markdown("</div>", unsafe_allow_html=True)
