@@ -12,7 +12,7 @@ st.markdown("""
             font-weight: bold;
             margin-top: 2rem;
         }
-        .goal-box {
+        .goal-box, .audience-box {
             background-color: white;
             padding: 1rem 1.2rem;
             border-radius: 12px;
@@ -29,32 +29,44 @@ st.markdown("""
 st.title("Audience Overview")
 
 st.write("""
-This digital privacy toolkit is designed for **newcomers to Canada** — including immigrants, refugees, international students, and other newly arrived residents.
-
-We understand that settling in a new country comes with unique challenges, especially when navigating online services, legal systems, and digital safety.
+This digital privacy toolkit is primarily designed for **newcomers to Canada**, including immigrants, refugees, international students, and other recently arrived residents.
 """)
 
 st.markdown("---")
-st.markdown('<div class="section-title">Why This Matters</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">3.1 Primary Audience: New Immigrants (Ages 18–55)</div>', unsafe_allow_html=True)
 
-st.write("""
-Newcomers are more vulnerable to:
-- Scams targeting people unfamiliar with Canadian systems
-- Language barriers that affect healthcare, legal consent, or job applications
-- Overexposure of personal information through forms, apps, or public networks
-- Digital surveillance or misinformation that may not be easy to detect
+st.markdown("""
+<div class="audience-box">
+<ul>
+    <li>Often unfamiliar with Canadian digital laws & systems</li>
+    <li>Vulnerable to scams, data misuse, and uninformed consent</li>
+    <li>Regularly required to share sensitive info (e.g., immigration, jobs, banking)</li>
+</ul>
+<b>This toolkit empowers informed, confident digital decisions.</b>
+</div>
+""", unsafe_allow_html=True)
 
-This toolkit provides trustworthy information in accessible language to help you take control of your digital life in Canada.
-""")
+st.markdown('<div class="section-title">3.2 Secondary & Tertiary Audiences</div>', unsafe_allow_html=True)
+
+st.markdown("""
+<div class="audience-box">
+<ul>
+    <li><b>Settlement workers & librarians:</b> Use the toolkit in digital literacy programs</li>
+    <li><b>Educators & support staff:</b> Reinforce trust and understanding</li>
+    <li><b>Policy makers & advocacy groups:</b> Promote broader inclusion and funding</li>
+    <li><b>Mental health advocates:</b> Recognize digital safety as part of well-being</li>
+</ul>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("---")
 st.markdown('<div class="section-title">Toolkit Goals</div>', unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown('<div class="goal-box">1.Help newcomers understand their privacy rights in Canada</div>', unsafe_allow_html=True)
-    st.markdown('<div class="goal-box">2.Provide tools for secure communication and online navigation</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">✅ Help newcomers understand their privacy rights in Canada</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">✅ Provide tools for secure communication and online navigation</div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="goal-box">3.Increase awareness of data collection and digital safety</div>', unsafe_allow_html=True)
-    st.markdown('<div class="goal-box">4.Reduce risks tied to fraud, discrimination, or misinformation</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">✅ Increase awareness of data collection and digital safety</div>', unsafe_allow_html=True)
+    st.markdown('<div class="goal-box">✅ Reduce risks tied to fraud, discrimination, or misinformation</div>', unsafe_allow_html=True)
