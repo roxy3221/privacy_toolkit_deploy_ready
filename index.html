@@ -1,61 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Toolkit Homepage</title>
-    <style>
-        body {
-            font-family: Georgia, serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F0F6FB;
-            color: #002145;
-        }
-        .container {
-            max-width: 900px;
-            margin: 80px auto;
-            text-align: center;
-            padding: 2rem;
-        }
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.8rem;
-        }
-        .scrolling-text {
-            font-size: 1.2rem;
-            overflow: hidden;
-            white-space: nowrap;
-            box-sizing: border-box;
-            animation: scroll-left 15s linear infinite;
-            color: #333;
-            margin: 1rem 0;
-        }
-        @keyframes scroll-left {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        .button-link {
-            display: inline-block;
-            background-color: #002145;
-            color: white;
-            text-decoration: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            margin-top: 2rem;
-        }
-        .button-link:hover {
-            background-color: #003366;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Toolkit</title>
+  <style>
+    body {
+      background-color: #F0F6FB;
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ccc;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .marquee h1 {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 12s linear infinite;
+      font-size: 2.6rem;
+      color: #002145;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+
+    .main-text {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      color: #333;
+      padding: 0 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #002145;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #003366;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Privacy Toolkit</h1>
-        <div class="scrolling-text">Empowering newcomers in Canada to protect their digital privacy, avoid scams, and understand their rights.</div>
-        <p>This toolkit supports immigrants, students, and new residents in navigating digital systems in Canada safely.</p>
-        <a class="button-link" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">Enter the Toolkit</a>
-    </div>
+
+  <!-- 滚动 Welcome 字样 -->
+  <div class="marquee">
+    <h1>Welcome to the Privacy Toolkit — 欢迎来到隐私工具包！</h1>
+  </div>
+
+  <!-- 中心介绍文本 -->
+  <div class="main-text">
+    <p>
+      This toolkit helps newcomers to Canada understand privacy rights, protect their personal data,
+      avoid scams, and safely use digital services in their new life in Canada.
+    </p>
+
+    <a class="btn" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">
+      Go to Privacy Toolkit →
+    </a>
+  </div>
+
 </body>
 </html>
