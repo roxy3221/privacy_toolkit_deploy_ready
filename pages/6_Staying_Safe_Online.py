@@ -88,7 +88,7 @@ with st.expander("5. Learn About Digital Safety"):
     st.markdown('<div class="card">Visit <a href="https://www.getcybersafe.gc.ca/en" target="_blank">Get Cyber Safe</a> for official guidance in multiple languages.</div>', unsafe_allow_html=True)
 
 # --- Suggested Resources ---
-st.markdown('<div class="section-title">📚 Suggested Resources</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-title">Suggested Resources</div>', unsafe_allow_html=True)
 st.markdown("""
 - **[National Cyber Threat Assessment 2025–2026](https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026)**  
   Outlines emerging cyber risks, like attacks on supply chains or AI-driven scams.
