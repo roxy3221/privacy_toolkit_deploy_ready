@@ -23,29 +23,30 @@ st.markdown("""
         .card-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem 1.5rem; /* vertical gap first, horizontal second */
+            gap: 2.5rem 2rem;
             justify-content: center;
             margin-top: 2rem;
         }
         .card {
             background-color: white;
             padding: 1.5rem 2rem;
-            border-radius: 12px;
+            border-radius: 14px;
             text-align: center;
             font-weight: bold;
-            color: #0d2b3e;
+            color: #1a1a1a;
             text-decoration: none;
             font-size: 1.1rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             width: 300px;
         }
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
-        .card:visited {
-            color: #0d2b3e;
+        .card:visited, .card:link, .card:hover {
+            color: #1a1a1a;
+            text-decoration: none;
         }
     </style>
 """, unsafe_allow_html=True)
