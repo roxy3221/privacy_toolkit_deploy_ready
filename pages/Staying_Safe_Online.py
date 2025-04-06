@@ -11,23 +11,18 @@ st.markdown("""
         .block-container {
             padding-top: 2rem;
             padding-bottom: 2rem;
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
         }
         h1, h2, h3, h4, h5 {
             color: #002145;
         }
-        a {
-            text-decoration: none !important;
-            color: black !important;
-        }
-        a:hover {
-            text-decoration: underline !important;
-        }
-        .streamlit-expanderHeader {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #002145;
+        .card {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -36,50 +31,55 @@ st.title("Staying Safe Online")
 
 st.header("Why Digital Safety Matters for Newcomers")
 st.write("""
-Canada faces growing cyber threats, like hackers attacking banks, hospitals, or government services. These attacks can disrupt daily life—for example, freezing online banking or shutting down hospital systems.
+Canada faces growing cyber threats, like hackers attacking banks, hospitals, or government services.
+These attacks can disrupt daily life — for example, freezing online banking or shutting down hospital systems.
 
-As a newcomer, you may rely heavily on the internet for jobs, healthcare, and staying connected. But not all websites or apps are safe, and your personal data (like passwords or bank details) could be stolen if you’re not careful.
+As a newcomer, you may rely heavily on the internet for jobs, healthcare, and staying connected. 
+But not all websites or apps are safe, and your personal data (like passwords or bank details) could be stolen if you’re not careful.
 """)
 
-# Expanders for clean layout
-with st.expander("Key Risks"):
-    st.write("""
-    - **Unsecured networks**: Public Wi-Fi (e.g., in cafes) can let hackers steal your data.
-    - **Fake websites/emails**: Scammers might pretend to be the government (like IRCC) to trick you into sharing personal info.
-    - **Data leaks**: Apps or services you use might accidentally expose your private information.
-    """)
+# --- Card-like sections ---
+col1, col2 = st.columns(2)
 
-with st.expander("Digital Equity and Inclusion: What It Means for You"):
-    st.write("""
-    - **Digital Equity** means everyone can access technology needed for jobs, education, and services.
-    - **Digital Inclusion** means ensuring even disadvantaged groups (like newcomers) can use the internet safely.
+with col1:
+    st.markdown("""
+    <div class="card">
+        <h4>🔓 Key Risks</h4>
+        <ul>
+            <li><strong>Unsecured networks:</strong> Public Wi-Fi can expose your personal data.</li>
+            <li><strong>Fake websites/emails:</strong> Scammers may pose as IRCC or banks.</li>
+            <li><strong>Data leaks:</strong> Poorly secured apps may expose your info.</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
-    **Why This Matters:**
-    Without digital access, you might miss:
-    - Job opportunities posted online
-    - Important updates about your immigration status
-    - Virtual healthcare appointments
-    """)
+with col2:
+    st.markdown("""
+    <div class="card">
+        <h4>🌍 Digital Equity & Inclusion</h4>
+        <p><strong>Digital Equity</strong> means everyone has access to key technology and internet.</p>
+        <p><strong>Digital Inclusion</strong> ensures that disadvantaged communities — like newcomers — can use digital services safely.</p>
+        <p><strong>Why This Matters:</strong></p>
+        <ul>
+            <li>Missing job opportunities</li>
+            <li>Losing immigration updates</li>
+            <li>Not accessing online healthcare</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
-with st.expander("How to Protect Yourself"):
-    st.write("""
-    **1. Use Strong Passwords**
-    - Create passwords with letters, numbers, and symbols (e.g., Sunshine2023!).
-    - Never reuse passwords for multiple accounts.
-
-    **2. Avoid Public Wi-Fi for Sensitive Tasks**
-    - Don’t check bank accounts or share personal info on café/airport Wi-Fi. Use mobile data instead.
-
-    **3. Spot Scams**
-    - Government agencies (like IRCC) will never call or email asking for money or passwords.
-    - Check website URLs: Scammers use fake links like IRCC-service.ca (real site: Canada.ca).
-
-    **4. Keep Software Updated**
-    - Update your phone, computer, and apps regularly to fix security gaps.
-
-    **5. Learn About Digital Safety**
-    - Visit Get Cyber Safe for tips in multiple languages.
-    """)
+st.markdown("""
+<div class="card">
+    <h4>🛡️ How to Protect Yourself</h4>
+    <ul>
+        <li><strong>Use Strong Passwords:</strong> Mix letters, numbers, and symbols (e.g., Sunshine2023!).</li>
+        <li><strong>Avoid Public Wi-Fi:</strong> Don’t check banking or share info on open networks.</li>
+        <li><strong>Spot Scams:</strong> IRCC will never email or call asking for money or passwords.</li>
+        <li><strong>Keep Software Updated:</strong> Regular updates prevent hacking.</li>
+        <li><strong>Learn More:</strong> Explore <a href="https://www.getcybersafe.gc.ca/en" target="_blank">Get Cyber Safe</a> for multilingual tips.</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("---")
 
