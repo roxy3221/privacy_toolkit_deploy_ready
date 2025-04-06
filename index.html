@@ -8,54 +8,50 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #F0F6FB;
-      color: #002145;
+      background-color: #eaf3f8; /* 更柔和的蓝色 */
+      color: #1a2e3b;
     }
 
-    /* 滚动欢迎栏 */
-    .marquee-modern {
-      width: 100%;
-      overflow: hidden;
-      background-color: #F0F6FB;
-      padding: 1rem 0;
-      border-bottom: 1px solid #ccc;
-    }
-
-    .marquee-modern span {
-      display: inline-block;
-      font-size: 1.6rem;
-      font-weight: bold;
-      animation: slideIn 15s linear infinite;
-      white-space: nowrap;
-    }
-
-    @keyframes slideIn {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* 主容器 */
     .container {
       max-width: 900px;
-      margin: 3rem auto;
+      margin: 5rem auto;
       padding: 0 2rem;
+      text-align: center;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    /* 打字机效果 */
+    .typewriter h1 {
+      overflow: hidden;
+      border-right: .12em solid #4a6e8c;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: .05em;
+      animation: typing 3.5s steps(32, end), blink-caret .75s step-end infinite;
+      font-size: 2.3rem;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #4a6e8c }
     }
 
     p {
       font-size: 1.1rem;
       line-height: 1.7;
+      margin-top: 2rem;
+      color: #34495e;
     }
 
     .button-link {
       display: inline-block;
       margin-top: 2rem;
       padding: 0.8rem 1.6rem;
-      background-color: #002145;
+      background-color: #4a6e8c;
       color: white;
       text-decoration: none;
       border-radius: 8px;
@@ -64,19 +60,16 @@
     }
 
     .button-link:hover {
-      background-color: #003366;
+      background-color: #395a73;
     }
   </style>
 </head>
 
 <body>
-  <!-- 滚动欢迎栏 -->
-  <div class="marquee-modern">
-    <span>Welcome to the Privacy Toolkit — 欢迎来到隐私工具包！</span>
-  </div>
-
   <div class="container">
-    <h1>Welcome to the Privacy Toolkit</h1>
+    <div class="typewriter">
+      <h1>Welcome to the Privacy Toolkit</h1>
+    </div>
     <p>
       This toolkit helps newcomers to Canada understand privacy rights,
       protect their personal data, avoid scams, and safely use digital services
