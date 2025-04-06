@@ -11,13 +11,20 @@ st.markdown("""
         }
         .card {
             background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
             margin-bottom: 1.5rem;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }
         .card h4 {
             margin-top: 0;
+            font-size: 1.4rem;
+        }
+        .card p, .card li {
+            font-size: 0.96rem;
+        }
+        ul {
+            padding-left: 1.2rem;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -25,7 +32,7 @@ st.markdown("""
 # --- Title ---
 st.title("Staying Safe Online")
 
-# --- Why Digital Safety Matters (Card 1) ---
+# --- Card 1: Why Digital Safety Matters ---
 st.markdown("""
 <div class="card">
     <h4>Why Digital Safety Matters for Newcomers</h4>
@@ -34,7 +41,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# --- Key Risks (Card 2) ---
+# --- Card 2: Key Risks ---
 st.markdown("""
 <div class="card">
     <h4>Key Risks</h4>
@@ -46,19 +53,20 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# --- Digital Equity Section ---
-st.markdown('<div class="section-title">Digital Equity & Inclusion: What It Means for You</div>', unsafe_allow_html=True)
-st.write("""
-Digital Equity means everyone can access technology needed for jobs, education, and services.  
-Digital Inclusion means ensuring even disadvantaged groups (like newcomers) can use the internet safely.
-""")
-
-st.markdown("**Why This Matters:**")
+# --- Card 3: Digital Equity & Inclusion ---
 st.markdown("""
-- Job opportunities posted online  
-- Important updates about your immigration status  
-- Virtual healthcare appointments  
-""")
+<div class="card">
+    <h4>Digital Equity & Inclusion: What It Means for You</h4>
+    <p><strong>Digital Equity</strong> means everyone can access technology needed for jobs, education, and services.</p>
+    <p><strong>Digital Inclusion</strong> means ensuring even disadvantaged groups (like newcomers) can use the internet safely.</p>
+    <p><strong>Why This Matters:</strong></p>
+    <ul>
+        <li>Job opportunities posted online</li>
+        <li>Important updates about your immigration status</li>
+        <li>Virtual healthcare appointments</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
 
 # --- Protect Yourself Section ---
 st.markdown('<div class="section-title">How to Protect Yourself</div>', unsafe_allow_html=True)
