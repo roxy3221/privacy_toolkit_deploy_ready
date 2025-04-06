@@ -101,7 +101,7 @@ with st.expander("4. Free Language Classes: Your Path to Success"):
 st.markdown("---")
 
 # 2.1.1 Suggested Resources
-st.subheader("2.1.1 Suggested Resources")
+st.subheader("Suggested Resources")
 
 suggested_resources = [
     {
