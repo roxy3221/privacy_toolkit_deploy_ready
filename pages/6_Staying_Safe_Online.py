@@ -69,30 +69,39 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# --- Protect Yourself Section ---
-st.markdown('<div class="section-title">How to Protect Yourself</div>', unsafe_allow_html=True)
-
-with st.expander("1. Use Strong Passwords"):
-    st.markdown('<div class="card">Create passwords with letters, numbers, and symbols (e.g., Sunshine2023!).<br>Never reuse passwords for multiple accounts.</div>', unsafe_allow_html=True)
-
-with st.expander("2. Avoid Public Wi-Fi for Sensitive Tasks"):
-    st.markdown('<div class="card">Don’t check bank accounts or share personal info on café/airport Wi-Fi.<br>Use mobile data instead.</div>', unsafe_allow_html=True)
-
-with st.expander("3. Spot Scams"):
-    st.markdown('<div class="card">Government agencies (like IRCC) will never call or email asking for money or passwords.<br>Check website URLs carefully — scammers use fake links like IRCC-service.ca (real site: Canada.ca).</div>', unsafe_allow_html=True)
-
-with st.expander("4. Keep Software Updated"):
-    st.markdown('<div class="card">Update your phone, computer, and apps regularly to fix security gaps.</div>', unsafe_allow_html=True)
-
-with st.expander("5. Learn About Digital Safety"):
-    st.markdown('<div class="card">Visit <a href="https://www.getcybersafe.gc.ca/en" target="_blank">Get Cyber Safe</a> for official guidance in multiple languages.</div>', unsafe_allow_html=True)
-
-# --- Suggested Resources ---
-st.markdown('<div class="section-title">Suggested Resources</div>', unsafe_allow_html=True)
+# 加粗加大标题：How to Protect Yourself
 st.markdown("""
-- **[National Cyber Threat Assessment 2025–2026](https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026)**  
+    <h3 style='margin-bottom: 1rem; font-size: 1.6rem;'>How to Protect Yourself</h3>
+""", unsafe_allow_html=True)
+
+# 保留原本的折叠卡片（Accordion）结构
+with st.expander("Use Strong Passwords"):
+    st.write("Create passwords with letters, numbers, and symbols (e.g., Sunshine2023!).")
+    st.write("Never reuse passwords for multiple accounts.")
+
+with st.expander("Avoid Public Wi-Fi for Sensitive Tasks"):
+    st.write("Don’t check bank accounts or share personal info on café/airport Wi-Fi. Use mobile data instead.")
+
+with st.expander("Spot Scams"):
+    st.write("Government agencies (like IRCC) will never call or email asking for money or passwords.")
+    st.write("Check website URLs: Scammers use fake links like IRCC-service.ca (real site: Canada.ca).")
+
+with st.expander("Keep Software Updated"):
+    st.write("Update your phone, computer, and apps regularly to fix security gaps.")
+
+with st.expander("Learn About Digital Safety"):
+    st.write("Visit Get Cyber Safe for tips in multiple languages.")
+
+# 加大标题：Suggested Resources
+st.markdown("""
+    <h3 style='margin-top: 2rem; font-size: 1.6rem;'>Suggested Resources</h3>
+""", unsafe_allow_html=True)
+
+# 资源列表（保持原样或根据你需要修改）
+st.markdown("""
+- [**National Cyber Threat Assessment 2025–2026**](https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026)  
   Outlines emerging cyber risks, like attacks on supply chains or AI-driven scams.
 
-- **[Exploring Digital Equity for Newcomer Services](https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf)**  
+- [**Exploring Digital Equity for Newcomer Services**](https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf)  
   Highlights challenges newcomers face in accessing digital tools and recommends hybrid (online + in-person) services.
 """)
