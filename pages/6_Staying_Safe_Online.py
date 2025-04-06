@@ -1,49 +1,50 @@
 import streamlit as st
 
-# --- Global Styling ---
+# --- Styling ---
 st.markdown("""
     <style>
-        html, body, .stApp {
+        .block-container {
             background-color: #F0F6FB;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
             font-family: 'Georgia', serif;
         }
-        .section-title {
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin-top: 2rem;
-        }
         .card {
-            background-color: #ffffff;
-            padding: 1rem;
+            background-color: white;
             border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            margin-bottom: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
         }
-        .indented {
-            margin-left: 1.5rem;
+        .card h4 {
+            margin-top: 0;
         }
     </style>
 """, unsafe_allow_html=True)
 
-# --- Page Content ---
+# --- Title ---
 st.title("Staying Safe Online")
 
-# --- Expandable Sections ---
-with st.expander("Why Digital Safety Matters for Newcomers", expanded=True):
-    st.markdown("""
-    Canada faces growing cyber threats, like hackers attacking banks, hospitals, or government services.
-    These attacks can disrupt daily life—for example, freezing online banking or shutting down hospital systems.
-    
-    As a newcomer, you may rely heavily on the internet for jobs, healthcare, and staying connected.
-    But not all websites or apps are safe, and your personal data (like passwords or bank details) could be stolen if you’re not careful.
-    """)
+# --- Why Digital Safety Matters (Card 1) ---
+st.markdown("""
+<div class="card">
+    <h4>Why Digital Safety Matters for Newcomers</h4>
+    <p>Canada faces growing cyber threats, like hackers attacking banks, hospitals, or government services. These attacks can disrupt daily life—for example, freezing online banking or shutting down hospital systems.</p>
+    <p>As a newcomer, you may rely heavily on the internet for jobs, healthcare, and staying connected. But not all websites or apps are safe, and your personal data (like passwords or bank details) could be stolen if you’re not careful.</p>
+</div>
+""", unsafe_allow_html=True)
 
-with st.expander("Key Risks", expanded=False):
-    st.markdown("""
-    - **Unsecured networks**: Public Wi-Fi (e.g., in cafes) can let hackers steal your data.  
-    - **Fake websites/emails**: Scammers might pretend to be the government (like IRCC) to trick you into sharing personal info.  
-    - **Data leaks**: Apps or services you use might accidentally expose your private information.
-    """)
+# --- Key Risks (Card 2) ---
+st.markdown("""
+<div class="card">
+    <h4>Key Risks</h4>
+    <ul>
+        <li><strong>Unsecured networks:</strong> Public Wi-Fi (e.g., in cafes) can let hackers steal your data.</li>
+        <li><strong>Fake websites/emails:</strong> Scammers might pretend to be the government (like IRCC) to trick you into sharing personal info.</li>
+        <li><strong>Data leaks:</strong> Apps or services you use might accidentally expose your private information.</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
 
 # --- Digital Equity Section ---
 st.markdown('<div class="section-title">Digital Equity & Inclusion: What It Means for You</div>', unsafe_allow_html=True)
