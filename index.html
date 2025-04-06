@@ -6,79 +6,86 @@
   <title>Privacy Toolkit</title>
   <style>
     body {
-      background-color: #F0F6FB;
-      font-family: Georgia, serif;
       margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .marquee {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      border-bottom: 1px solid #ccc;
-      margin-top: 3rem;
-      margin-bottom: 2rem;
-    }
-
-    .marquee h1 {
-      display: inline-block;
-      padding-left: 100%;
-      animation: marquee 12s linear infinite;
-      font-size: 2.6rem;
+      font-family: 'Georgia', serif;
+      background-color: #F0F6FB;
       color: #002145;
     }
 
-    @keyframes marquee {
-      0%   { transform: translate(0, 0); }
-      100% { transform: translate(-100%, 0); }
+    /* 滚动欢迎栏 */
+    .marquee-modern {
+      width: 100%;
+      overflow: hidden;
+      background-color: #F0F6FB;
+      padding: 1rem 0;
+      border-bottom: 1px solid #ccc;
     }
 
-    .main-text {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      color: #333;
-      padding: 0 1rem;
+    .marquee-modern span {
+      display: inline-block;
+      font-size: 1.6rem;
+      font-weight: bold;
+      animation: slideIn 15s linear infinite;
+      white-space: nowrap;
     }
 
-    .btn {
+    @keyframes slideIn {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* 主容器 */
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .button-link {
       display: inline-block;
       margin-top: 2rem;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 1.6rem;
       background-color: #002145;
       color: white;
       text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
-      border-radius: 6px;
       transition: background-color 0.3s ease;
     }
 
-    .btn:hover {
+    .button-link:hover {
       background-color: #003366;
     }
   </style>
 </head>
-<body>
 
-  <!-- 滚动 Welcome 字样 -->
-  <div class="marquee">
-    <h1>Welcome to the Privacy Toolkit — 欢迎来到隐私工具包！</h1>
+<body>
+  <!-- 滚动欢迎栏 -->
+  <div class="marquee-modern">
+    <span>Welcome to the Privacy Toolkit — 欢迎来到隐私工具包！</span>
   </div>
 
-  <!-- 中心介绍文本 -->
-  <div class="main-text">
+  <div class="container">
+    <h1>Welcome to the Privacy Toolkit</h1>
     <p>
-      This toolkit helps newcomers to Canada understand privacy rights, protect their personal data,
-      avoid scams, and safely use digital services in their new life in Canada.
+      This toolkit helps newcomers to Canada understand privacy rights,
+      protect their personal data, avoid scams, and safely use digital services
+      in their new life in Canada.
     </p>
 
-    <a class="btn" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">
-      Go to Privacy Toolkit →
+    <a class="button-link" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">
+      Enter the Toolkit
     </a>
   </div>
-
 </body>
 </html>
