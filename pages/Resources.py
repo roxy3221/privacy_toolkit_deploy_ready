@@ -9,6 +9,17 @@ st.markdown("""
         body {
             font-family: 'Georgia', serif;
         }
+        * {
+            color: #000000 !important;
+        }
+        a {
+            color: #000000 !important;
+            text-decoration: none !important;
+        }
+        a:hover {
+            color: #000000 !important;
+            text-decoration: none !important;
+        }
         .block-container {
             padding-top: 2rem;
             padding-bottom: 2rem;
@@ -30,11 +41,9 @@ st.markdown("""
             font-size: 1.1rem;
             font-weight: bold;
             margin-bottom: 0.3rem;
-            color: #1a508b;
         }
         .resource-desc {
             font-size: 0.95rem;
-            color: #333333;
         }
         .topic-card {
             background-color: #ffffff;
@@ -47,9 +56,6 @@ st.markdown("""
         .topic-card:hover {
             border-color: #1a508b;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        a {
-            text-decoration: none;
         }
     </style>
 """, unsafe_allow_html=True)
