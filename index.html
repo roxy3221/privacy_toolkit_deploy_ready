@@ -10,31 +10,32 @@
       font-family: 'Georgia', serif;
       background-color: #eaf3f8;
       color: #1a2e3b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
 
     .container {
       max-width: 900px;
-      margin: 5rem auto;
       padding: 0 2rem;
-      text-align: center;
     }
 
     .typewriter h1 {
-      display: inline-block;
-      overflow: hidden;
-      border-right: .12em solid #4a6e8c;
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: .05em;
-      animation: typing 4s steps(35, end) infinite,
-                 blink-caret .75s step-end infinite;
       font-size: 2.3rem;
+      border-right: 2px solid #4a6e8c;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation:
+        typing 3s steps(40, end),
+        blink-caret 0.75s step-end infinite;
     }
 
     @keyframes typing {
-      0% { width: 0 }
-      50% { width: 100% }
-      100% { width: 0 }
+      from { width: 0 }
+      to { width: 100% }
     }
 
     @keyframes blink-caret {
@@ -70,7 +71,7 @@
 <body>
   <div class="container">
     <div class="typewriter">
-      <h1>Welcome to the Privacy Toolkit</h1>
+      <h1 id="typed-text"></h1>
     </div>
     <p>
       This toolkit helps newcomers to Canada understand privacy rights,
@@ -82,5 +83,39 @@
       Enter the Toolkit
     </a>
   </div>
+
+  <script>
+    const phrases = [
+      "Welcome to the Privacy Toolkit",
+      "欢迎使用隐私工具包",
+      "Bienvenue dans la boîte à outils sur la vie privée"
+    ];
+
+    const textElement = document.getElementById("typed-text");
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      const currentPhrase = phrases[phraseIndex];
+      if (isDeleting) {
+        textElement.textContent = currentPhrase.substring(0, charIndex--);
+      } else {
+        textElement.textContent = currentPhrase.substring(0, charIndex++);
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        setTimeout(() => isDeleting = true, 1200);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+
+      const typingSpeed = isDeleting ? 50 : 100;
+      setTimeout(type, typingSpeed);
+    }
+
+    type();
+  </script>
 </body>
 </html>
