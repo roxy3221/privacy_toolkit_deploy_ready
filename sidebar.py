@@ -1,7 +1,6 @@
 import streamlit as st
 
 def render_sidebar():
-    # 简单中文导航目录，仅文字显示
     menu = [
         "首页",
         "关于我们",
@@ -11,7 +10,16 @@ def render_sidebar():
         "实用网站"
     ]
 
-    # Sidebar 样式一致，使用小字体、无交互
-    st.sidebar.markdown("<br>".join(
-        [f"<div style='font-size: 0.9rem; padding: 0.2rem 0;'>{item}</div>" for item in menu]
-    ), unsafe_allow_html=True)
+    st.sidebar.markdown("""
+        <style>
+        .sidebar-chinese-menu p {
+            font-size: 0.91rem;
+            padding: 0.25rem 1rem 0.25rem 0.75rem;
+            margin: 0;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+    st.sidebar.markdown("<div class='sidebar-chinese-menu'>" + "\n".join(
+        [f"<p>{item}</p>" for item in menu]
+    ) + "</div>", unsafe_allow_html=True)
