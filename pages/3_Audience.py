@@ -10,18 +10,18 @@ st.markdown("""
             background-color: #F0F6FB;
             font-family: 'Georgia', serif;
         }
-        .container {
+        .main-container {
             max-width: 900px;
-            margin: 2rem auto;
+            margin: 3rem auto;
+            padding: 2rem 2.5rem;
             background-color: white;
-            padding: 2.5rem 2.5rem;
             border-radius: 14px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.06);
         }
         h1 {
             color: #002145;
             font-size: 2.3rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
         h2 {
             color: #002145;
@@ -29,25 +29,25 @@ st.markdown("""
             margin-top: 2rem;
             margin-bottom: 0.8rem;
         }
-        ul {
-            margin-top: 0.2rem;
-            padding-left: 1.2rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
+        p, li {
+            font-size: 1.02rem;
             line-height: 1.6;
+        }
+        ul {
+            margin-top: 0.4rem;
+            padding-left: 1.3rem;
         }
         .highlight {
             font-weight: bold;
             margin-top: 1rem;
         }
-        .goal-list {
+        .goal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }
-        .goal-item {
+        .goal-box {
             background-color: #f2f8fc;
             padding: 1rem 1.2rem;
             border-radius: 10px;
@@ -56,10 +56,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Main content box ---
-st.markdown('<div class="container">', unsafe_allow_html=True)
+# --- Content Block ---
+st.markdown('<div class="main-container">', unsafe_allow_html=True)
 
-# --- Title + Intro ---
+# --- Title & Intro ---
 st.markdown("<h1>Audience Overview</h1>", unsafe_allow_html=True)
 st.markdown("""
 <p>This digital privacy toolkit is designed for <strong>newcomers to Canada</strong>, including immigrants, refugees, international students, and other recently arrived residents.</p>
@@ -90,13 +90,13 @@ st.markdown("""
 # --- Toolkit Goals ---
 st.markdown("<h2>Toolkit Goals</h2>", unsafe_allow_html=True)
 st.markdown("""
-<div class="goal-list">
-  <div class="goal-item">Help newcomers understand their privacy rights in Canada</div>
-  <div class="goal-item">Provide tools for secure communication and digital navigation</div>
-  <div class="goal-item">Increase awareness of data collection and digital safety</div>
-  <div class="goal-item">Reduce risks tied to scams, discrimination, and misinformation</div>
+<div class="goal-grid">
+  <div class="goal-box">Help newcomers understand their privacy rights in Canada</div>
+  <div class="goal-box">Provide tools for secure communication and online navigation</div>
+  <div class="goal-box">Increase awareness of data collection and digital safety</div>
+  <div class="goal-box">Reduce risks tied to scams, discrimination, or misinformation</div>
 </div>
 """, unsafe_allow_html=True)
 
-# --- End of container ---
+# --- Close Main Container ---
 st.markdown("</div>", unsafe_allow_html=True)
