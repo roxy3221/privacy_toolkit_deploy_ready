@@ -2,12 +2,14 @@ import streamlit as st
 from sidebar import render_sidebar
 from language import get_language
 
-# 页面设置
+# --- Page config ---
 st.set_page_config(page_title="Resource Library", layout="wide")
+
+# --- Language + Sidebar ---
 lang = get_language()
 render_sidebar()
 
-# --- 样式 ---
+# --- CSS Styling ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -55,15 +57,15 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- 中英文标题 ---
+# --- Title & Subtitle ---
 if lang == "English":
     st.markdown("<h1>Resource Library</h1>", unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>Explore key topics related to privacy, safety, AI, and digital protection in Canada.</div>", unsafe_allow_html=True)
 else:
     st.markdown("<h1>资源库</h1>", unsafe_allow_html=True)
-    st.markdown("<div class='subtitle'>浏览有关隐私、安全、人工智能和加拿大数字保护的核心主题。</div>", unsafe_allow_html=True)
+    st.markdown("<div class='subtitle'>浏览有关隐私、安全、人工智能与加拿大数字保护的核心主题。</div>", unsafe_allow_html=True)
 
-# --- 卡片标题（中英版本）---
+# --- Cards (titles & links) ---
 titles = {
     "English": [
         "Newcomer’s Guide to Healthcare & Jobs",
@@ -81,7 +83,6 @@ titles = {
     ]
 }
 
-# --- 卡片链接（固定英文链接）---
 links = [
     "https://privacy-html-subpages.vercel.app/newcomer-guide.html",
     "https://privacy-html-subpages.vercel.app/how-police-use-data.html",
@@ -90,7 +91,7 @@ links = [
     "https://privacy-html-subpages.vercel.app/staying-safe-online.html"
 ]
 
-# --- 渲染卡片 ---
+# --- Render card grid ---
 st.markdown('<div class="card-grid">', unsafe_allow_html=True)
 for title, link in zip(titles["English" if lang == "English" else "中文"], links):
     st.markdown(f"""
