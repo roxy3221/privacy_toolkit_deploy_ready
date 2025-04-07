@@ -1,5 +1,8 @@
 import streamlit as st
 import base64
+from sidebar import render_sidebar
+
+lang = render_sidebar()
 
 # Page setup
 st.set_page_config(page_title="Privacy Toolkit", layout="wide")
