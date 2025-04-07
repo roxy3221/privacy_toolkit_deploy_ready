@@ -68,15 +68,6 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ✅ 蓝色提示框放在标题下方
-if lang == "English":
-    st.info("""
-    - **Use the sidebar on the left to navigate between sections.**  
-    - **中文用户：请切换左侧语言为中文浏览中文内容（中文导航栏无法点击），请点击英文导航项继续使用。**
-    """)
-else:
-    st.info("当前页面显示为中文，左侧中文导航不可用，点击英文导航项仍可正常使用")
-
 # --- 简介段落 ---
 intro = (
     "This toolkit helps newcomers to Canada understand privacy rights, protect their personal data, avoid scams, and safely use digital services in their new life in Canada."
@@ -127,3 +118,15 @@ with cols[2]:
     )
 
 st.markdown("---")
+
+# --- 页面底部提示 ---
+if lang == "English":
+    st.info("""
+Use the sidebar on the left to navigate between sections.
+
+中文用户请切换左侧语言为中文浏览中文内容（中文导航栏仅供参考），请点击英文导航项继续使用。
+""")
+else:
+    st.info("""
+当前页面显示为中文，左侧中文导航不可用，点击英文导航项仍可正常使用。
+""")
