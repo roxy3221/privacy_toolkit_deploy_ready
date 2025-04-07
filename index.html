@@ -31,26 +31,31 @@
       display: inline-block;
       color: #002145;
       min-height: 3rem;
+      animation: blink 1s step-end infinite;
     }
 
     @keyframes blink {
       50% { border-color: transparent; }
     }
 
-    .typewriter-text {
-      animation: blink 1s step-end infinite;
-    }
-
-    p {
+    #description {
       font-size: 1.1rem;
       line-height: 1.7;
       margin-top: 2rem;
       color: #34495e;
+      min-height: 4rem;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
     }
 
     .button-link {
       display: inline-block;
-      margin-top: 2rem;
       padding: 0.8rem 1.6rem;
       background-color: #4a6e8c;
       color: white;
@@ -69,23 +74,32 @@
 <body>
   <div class="container">
     <div class="typewriter-text" id="typewriter"></div>
+    <p id="description"></p>
 
-    <p>
-      This toolkit helps newcomers to Canada understand privacy rights,
-      protect their personal data, avoid scams, and safely use digital services
-      in their new life in Canada.
-    </p>
-
-    <a class="button-link" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">
-      Enter the Toolkit
-    </a>
+    <div class="button-row">
+      <a class="button-link" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">
+        Enter the Toolkit
+      </a>
+      <a class="button-link" href="index-cn.html">
+        中文入口
+      </a>
+    </div>
   </div>
 
   <script>
     const phrases = [
-      "Welcome to the Privacy Toolkit",
-      "欢迎使用隐私工具包",
-      "Bienvenue dans la boîte à outils sur la vie privée"
+      {
+        title: "Welcome to the Privacy Toolkit",
+        desc: "This toolkit helps newcomers to Canada understand privacy rights, protect their personal data, avoid scams, and safely use digital services in their new life in Canada."
+      },
+      {
+        title: "欢迎使用隐私工具包",
+        desc: "本工具包帮助新移民了解隐私权，保护个人数据，避免诈骗，并安全使用加拿大的数字服务。"
+      },
+      {
+        title: "Bienvenue dans la boîte à outils sur la vie privée",
+        desc: "Cette boîte à outils aide les nouveaux arrivants au Canada à comprendre leurs droits en matière de vie privée et à utiliser les services numériques en toute sécurité."
+      }
     ];
 
     let currentPhrase = 0;
@@ -93,21 +107,23 @@
     let typing = true;
 
     const el = document.getElementById("typewriter");
+    const desc = document.getElementById("description");
 
     function type() {
       const phrase = phrases[currentPhrase];
 
       if (typing) {
-        el.textContent = phrase.substring(0, currentChar + 1);
+        el.textContent = phrase.title.substring(0, currentChar + 1);
         currentChar++;
 
-        if (currentChar === phrase.length) {
+        if (currentChar === phrase.title.length) {
           typing = false;
+          desc.textContent = phrase.desc; // 🔁 Sync description
           setTimeout(type, 1500);  // Pause before deleting
           return;
         }
       } else {
-        el.textContent = phrase.substring(0, currentChar - 1);
+        el.textContent = phrase.title.substring(0, currentChar - 1);
         currentChar--;
 
         if (currentChar === 0) {
