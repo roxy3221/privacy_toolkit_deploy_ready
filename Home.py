@@ -2,13 +2,16 @@ import streamlit as st
 import base64
 from sidebar import render_sidebar
 
-# ✅ 必须放在所有 Streamlit 命令之前
+# ✅ 页面配置必须最先执行
 st.set_page_config(page_title="Privacy Toolkit", layout="wide")
 
-# 获取语言 + 激活自定义 sidebar
-lang = render_sidebar()
+# ✅ 页面顶部语言切换器（默认英文）
+lang = st.selectbox("🌐 Language / 语言", ["English", "中文"], index=0)
 
-# --- Styling ---
+# ✅ 显示简洁中文 Sidebar 目录（纯展示用）
+render_sidebar()
+
+# --- 样式 ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -16,11 +19,9 @@ st.markdown("""
             margin: 0;
             padding: 0;
         }
-
         body {
             font-family: 'Georgia', serif;
         }
-
         .typewriter {
             font-size: 2.75em;
             color: #002145;
@@ -33,19 +34,16 @@ st.markdown("""
             margin-bottom: 1rem;
             text-align: center;
         }
-
         @keyframes typing {
             from { width: 0 }
             to { width: 100% }
         }
-
         @keyframes blink {
             50% { border-color: transparent }
         }
-
         .section-box {
             border: 1px solid #e0e0e0;
-            border-radius: 6px;
+            border-radius: 14px;
             padding: 1rem;
             background-color: #ffffff;
             height: 100%;
@@ -53,7 +51,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- UofT Logo ---
+# --- Logo ---
 logo_base64 = base64.b64encode(open("uoft_logo.png", "rb").read()).decode()
 st.markdown(
     f"""
@@ -64,13 +62,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --- Animated Title ---
+# --- 标题 ---
 if lang == "English":
     st.markdown("<div class='typewriter'>Welcome to the Privacy Toolkit</div>", unsafe_allow_html=True)
 else:
     st.markdown("<div class='typewriter'>欢迎使用隐私工具包</div>", unsafe_allow_html=True)
 
-# --- Introduction Text ---
+# --- 简介 ---
 if lang == "English":
     st.write("""
     This toolkit helps newcomers to Canada understand privacy rights, protect their personal data,
@@ -83,13 +81,13 @@ else:
 
 st.markdown("---")
 
-# --- Section Header ---
+# --- 子栏目标题 ---
 if lang == "English":
     st.subheader("What You’ll Find Here")
 else:
     st.subheader("你将在这里找到")
 
-# --- Preview Sections ---
+# --- 预览卡片 ---
 cols = st.columns(3)
 with cols[0]:
     st.markdown(f"<div class='section-box'><strong>{'Privacy Quiz' if lang == 'English' else '隐私小测试'}</strong><br/>{'Test your knowledge with real-life scenarios and tips.' if lang == 'English' else '通过真实情境测试你的隐私意识并获取实用建议。'}</div>", unsafe_allow_html=True)
@@ -100,8 +98,8 @@ with cols[2]:
 
 st.markdown("---")
 
-# --- Footer Info ---
+# --- 底部提示 ---
 if lang == "English":
-    st.info("Use the sidebar on the left to navigate between sections.")
+    st.info("Use the sidebar on the left to view each section.")
 else:
-    st.info("使用左侧边栏在各个部分之间导航。")
+    st.info("使用左侧边栏查看各个部分内容。")
