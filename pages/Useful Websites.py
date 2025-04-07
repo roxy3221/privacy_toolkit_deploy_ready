@@ -64,61 +64,134 @@ or settling immigration status. Below are tips to help you protect your privacy 
 
 st.markdown("---")
 
-# --- 多语言资源列表 ---
+# --- 多语言资源列表（16 个）---
 resources = [
     {
-        "title": {
-            "English": "Canadian Anti-Fraud Centre",
-            "中文": "加拿大反诈骗中心"
-        },
+        "title": {"English": "Canadian Anti-Fraud Centre", "中文": "加拿大反诈骗中心"},
         "url": "https://antifraudcentre-centreantifraude.ca/index-eng.htm",
         "desc": {
-            "English": "The Canadian Anti-Fraud Centre collects information on fraud and identity theft. If you think you're a victim, report it!",
-            "中文": "加拿大反诈骗中心收集关于诈骗和身份盗用的信息。如果你怀疑自己被骗，请及时举报！"
+            "English": "Provides info on past/current scams & lets you report fraud.",
+            "中文": "提供诈骗信息及举报途径。"
         }
     },
     {
-        "title": {
-            "English": "Data Detox Kit",
-            "中文": "数据排毒工具包"
-        },
+        "title": {"English": "Data Detox Kit", "中文": "数据排毒工具包"},
         "url": "https://datadetoxkit.org/en/home",
         "desc": {
-            "English": "Explore guides about AI, digital privacy, security, and wellbeing.",
-            "中文": "探索关于人工智能、数字隐私、安全与数字健康的指南。"
+            "English": "Guides on AI, privacy, security, wellbeing, health data, and misinformation.",
+            "中文": "涵盖人工智能、隐私、安全、健康数据和虚假信息等主题。"
         }
     },
     {
-        "title": {
-            "English": "Learning Together for Responsible Artificial Intelligence",
-            "中文": "负责任人工智能教育平台"
-        },
-        "url": "https://ised-isde.canada.ca/site/advisory-council-artificial-intelligence/en/public-awareness-working-group/learning-together-responsible-artificial-intelligence",
+        "title": {"English": "Privacy in Public Spaces (Edwards & Urquhart)", "中文": "公共空间隐私研究"},
+        "url": "https://doi.org/10.1093/ijlit/eaw007",
         "desc": {
-            "English": "Teaches how to use AI ethically, like avoiding data that reflects racial biases.",
-            "中文": "帮助大众了解如何以负责任的方式使用人工智能，例如避免使用带有偏见的数据。"
+            "English": "Explores how social media intelligence is used by police.",
+            "中文": "探讨社交媒体数据如何被警方使用。"
         }
     },
     {
-        "title": {
-            "English": "Free Help For Newcomers",
-            "中文": "新移民免费支持服务"
-        },
+        "title": {"English": "Enforcing Canada’s Anti-Spam Law (CASL)", "中文": "加拿大反垃圾邮件法"},
+        "url": "https://crtc.gc.ca/eng/internet/pub/20240930.htm",
+        "desc": {
+            "English": "Understand 5 types of scam & spam targeting Canadians.",
+            "中文": "了解 5 类常见诈骗与垃圾信息。"
+        }
+    },
+    {
+        "title": {"English": "Protecting Your Privacy (Ontario IPC)", "中文": "安省隐私专员建议"},
+        "url": "https://www.ipc.on.ca/en/privacy-individuals/ensuring-your-privacy-is-protected",
+        "desc": {
+            "English": "Steps to take for better privacy.",
+            "中文": "保护隐私的实用建议。"
+        }
+    },
+    {
+        "title": {"English": "Digital Equity in Newcomer Services", "中文": "新移民数字公平报告"},
+        "url": "https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf",
+        "desc": {
+            "English": "Highlights access gaps & recommends hybrid services.",
+            "中文": "揭示新移民使用数字工具的难题，并推荐线上线下结合服务。"
+        }
+    },
+    {
+        "title": {"English": "YMCA Newcomer Support", "中文": "YMCA 新移民服务"},
         "url": "https://www.ymcagta.org/immigrant-services",
         "desc": {
-            "English": "Offers language training and cultural orientation to ease integration.",
-            "中文": "提供语言培训与文化适应服务，帮助新移民更顺利融入。"
+            "English": "Free language training & cultural orientation.",
+            "中文": "提供语言学习和文化适应服务。"
         }
     },
     {
-        "title": {
-            "English": "National Cyber Threat Assessment 2025-2026",
-            "中文": "2025-2026 年国家网络威胁评估"
-        },
+        "title": {"English": "Meaningful Consent Guidelines", "中文": "知情同意指南"},
+        "url": "https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/",
+        "desc": {
+            "English": "Helps you understand privacy terms before agreeing.",
+            "中文": "帮助用户理解隐私政策内容再同意。"
+        }
+    },
+    {
+        "title": {"English": "Guide to Generative AI Use", "中文": "生成式 AI 使用指南"},
+        "url": "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html",
+        "desc": {
+            "English": "Use generative AI safely & ethically.",
+            "中文": "介绍如何负责任地使用 AI 工具。"
+        }
+    },
+    {
+        "title": {"English": "Personal Information Banks (IRCC)", "中文": "个人信息数据库"},
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/info-source/personal-information-banks.html",
+        "desc": {
+            "English": "Shows how government stores biometrics & personal data.",
+            "中文": "说明政府如何保存与使用指纹等生物数据。"
+        }
+    },
+    {
+        "title": {"English": "Data Profiling & Surveillance", "中文": "数据画像与监控"},
+        "url": "https://doi-org.myaccess.library.utoronto.ca/10.1093/ijlit/eaw007",
+        "desc": {
+            "English": "Understanding how data can be used to track people.",
+            "中文": "理解数据如何被用于监控与评估个人。"
+        }
+    },
+    {
+        "title": {"English": "Language Barriers in Healthcare", "中文": "语言障碍与医疗服务"},
+        "url": "https://www.canada.ca/en/health-canada/services/health-care-system/reports-publications/health-care-accessibility/language-barriers.html",
+        "desc": {
+            "English": "Impact of language gaps & interpreter training.",
+            "中文": "语言问题如何影响治疗质量，以及口译员的重要性。"
+        }
+    },
+    {
+        "title": {"English": "Government Language Classes (LINC/CLIC)", "中文": "政府语言培训班"},
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html",
+        "desc": {
+            "English": "Free English/French classes for newcomers.",
+            "中文": "面向新移民的免费英语/法语学习资源。"
+        }
+    },
+    {
+        "title": {"English": "Learning Together for Responsible AI", "中文": "负责任 AI 教育平台"},
+        "url": "https://ised-isde.canada.ca/site/advisory-council-artificial-intelligence/en/public-awareness-working-group/learning-together-responsible-artificial-intelligence",
+        "desc": {
+            "English": "Understand how to avoid data bias & use AI fairly.",
+            "中文": "了解如何避免数据偏差并公平使用人工智能。"
+        }
+    },
+    {
+        "title": {"English": "Cyber Threat Report 2025–26", "中文": "2025–26 网络威胁报告"},
         "url": "https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026",
         "desc": {
-            "English": "Outlines cyber risks like attacks on supply chains or AI-driven scams.",
-            "中文": "概述了供应链攻击、AI 诈骗等主要网络安全风险。"
+            "English": "Covers AI scams & supply chain attacks.",
+            "中文": "涵盖 AI 欺诈和供应链攻击等内容。"
+        }
+    },
+    {
+        "title": {"English": "New Canadian Media: Fraud Victim Risks", "中文": "新加拿大人易受诈骗报告"},
+        "url": "https://www.newcanadianmedia.ca/new-to-canada-beware-youre-twice-as-likely-to-become-a-fraud-victim-survey-reveals/",
+        "desc": {
+            "English": "Explains why newcomers are more at risk.",
+            "中文": "解释新移民为何更易受骗。"
         }
     },
 ]
