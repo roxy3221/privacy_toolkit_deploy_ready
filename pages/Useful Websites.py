@@ -1,6 +1,13 @@
 import streamlit as st
+from sidebar import render_sidebar
+from language import get_language
 
-# --- Minimalist Global Styling (light blue, no underline) ---
+# --- 页面配置 ---
+st.set_page_config(page_title="Useful Resources", layout="wide")
+lang = get_language()
+render_sidebar()
+
+# --- 样式 ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -43,112 +50,84 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Page Title & Intro ---
-st.title("Useful Resources")
+# --- 页面标题 & 简介 ---
+st.title("Useful Resources" if lang == "English" else "实用网站推荐")
+
 st.write("""
 Privacy is always important to keep in mind. Newcomers to Canada are often targeted by scammers 
 because of language barriers, unfamiliarity with local systems, or urgent needs like finding jobs 
 or settling immigration status. Below are tips to help you protect your privacy and a list of useful resources to explore.
+""" if lang == "English" else """
+隐私保护无时无刻不重要。新移民往往因为语言障碍、不熟悉加拿大制度、或急需工作/移民处理，而成为诈骗目标。
+下面是一些隐私提示和实用资源，帮助你更好地保护自己。
 """)
 
 st.markdown("---")
 
-# -- Resource Data: Title, URL, Description
+# --- 多语言资源列表 ---
 resources = [
     {
-        "title": "Canadian Anti-Fraud Centre",
+        "title": {
+            "English": "Canadian Anti-Fraud Centre",
+            "中文": "加拿大反诈骗中心"
+        },
         "url": "https://antifraudcentre-centreantifraude.ca/index-eng.htm",
-        "desc": """The Canadian Anti-Fraud Centre collects information on fraud and identity theft. 
-We provide information on past and current scams affecting Canadians. If you think 
-you're a victim of fraud, report it!"""
+        "desc": {
+            "English": "The Canadian Anti-Fraud Centre collects information on fraud and identity theft. If you think you're a victim, report it!",
+            "中文": "加拿大反诈骗中心收集关于诈骗和身份盗用的信息。如果你怀疑自己被骗，请及时举报！"
+        }
     },
     {
-        "title": "Data Detox Kit",
+        "title": {
+            "English": "Data Detox Kit",
+            "中文": "数据排毒工具包"
+        },
         "url": "https://datadetoxkit.org/en/home",
-        "desc": """Explore guides about Artificial Intelligence, digital privacy, security, wellbeing, 
-misinformation, health data, and tech and the environment."""
+        "desc": {
+            "English": "Explore guides about AI, digital privacy, security, and wellbeing.",
+            "中文": "探索关于人工智能、数字隐私、安全与数字健康的指南。"
+        }
     },
     {
-        "title": "Edwards, L., & Urquhart, L. (2016). Privacy in Public Spaces",
-        "url": "https://doi.org/10.1093/ijlit/eaw007",
-        "desc": """Discusses expectations of privacy in social media intelligence (SOCMINT) 
-and open source intelligence (OSINT) used by law enforcement."""
-    },
-    {
-        "title": "Enforcing Canada’s Anti-Spam Legislation (CASL)",
-        "url": "https://crtc.gc.ca/eng/internet/pub/20240930.htm",
-        "desc": "Understand five common types of spam and scam."
-    },
-    {
-        "title": "Ensuring your privacy is protected",
-        "url": "https://www.ipc.on.ca/en/privacy-individuals/ensuring-your-privacy-is-protected",
-        "desc": "Ways to help you protect your privacy."
-    },
-    {
-        "title": "Exploring Digital Equity for Newcomer Services",
-        "url": "https://peelnewcomer.org/wp-content/uploads/sites/52/2025/01/Digital-Equity-in-Settlement-Services-Report_Final.pdf",
-        "desc": """Highlights challenges newcomers face in accessing digital tools and 
-recommends hybrid (online + in-person) services."""
-    },
-    {
-        "title": "Free Help For Newcomers",
-        "url": "https://www.ymcagta.org/immigrant-services",
-        "desc": """Offers language training and cultural orientation to ease integration."""
-    },
-    {
-        "title": "Guidelines for obtaining meaningful consent",
-        "url": "https://www.priv.gc.ca/en/privacy-topics/collecting-personal-information/consent/gl_omc_201805/",
-        "desc": """Details how organizations must simplify privacy information to ensure 
-people truly understand what they’re agreeing to."""
-    },
-    {
-        "title": "Guide on the use of generative artificial intelligence",
-        "url": "https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/responsible-use-ai/guide-use-generative-ai.html",
-        "desc": """Learn about how to use AI tools while protecting people’s privacy."""
-    },
-    {
-        "title": "Info Source: Personal Information Banks",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/info-source/personal-information-banks.html",
-        "desc": "Explains how government agencies store and use data like biometrics."
-    },
-    {
-        "title": "International Journal of Law & Info Tech",
-        "url": "https://doi-org.myaccess.library.utoronto.ca/10.1093/ijlit/eaw007",
-        "desc": """Understanding data surveillance and data profiling in modern contexts."""
-    },
-    {
-        "title": "Language Barriers in Access to Health Care",
-        "url": "https://www.canada.ca/en/health-canada/services/health-care-system/reports-publications/health-care-accessibility/language-barriers.html",
-        "desc": """Explains how language gaps affect care quality and lists solutions like 
-interpreter training."""
-    },
-    {
-        "title": "Language classes funded by the Government of Canada",
-        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/settle-canada/language-skills/classes.html",
-        "desc": """Government-funded programs to help newcomers learn English/French."""
-    },
-    {
-        "title": "Learning Together for Responsible Artificial Intelligence",
+        "title": {
+            "English": "Learning Together for Responsible Artificial Intelligence",
+            "中文": "负责任人工智能教育平台"
+        },
         "url": "https://ised-isde.canada.ca/site/advisory-council-artificial-intelligence/en/public-awareness-working-group/learning-together-responsible-artificial-intelligence",
-        "desc": """Teaches how to use AI ethically, like avoiding data that reflects racial biases."""
+        "desc": {
+            "English": "Teaches how to use AI ethically, like avoiding data that reflects racial biases.",
+            "中文": "帮助大众了解如何以负责任的方式使用人工智能，例如避免使用带有偏见的数据。"
+        }
     },
     {
-        "title": "National Cyber Threat Assessment 2025-2026",
+        "title": {
+            "English": "Free Help For Newcomers",
+            "中文": "新移民免费支持服务"
+        },
+        "url": "https://www.ymcagta.org/immigrant-services",
+        "desc": {
+            "English": "Offers language training and cultural orientation to ease integration.",
+            "中文": "提供语言培训与文化适应服务，帮助新移民更顺利融入。"
+        }
+    },
+    {
+        "title": {
+            "English": "National Cyber Threat Assessment 2025-2026",
+            "中文": "2025-2026 年国家网络威胁评估"
+        },
         "url": "https://www.cyber.gc.ca/en/guidance/national-cyber-threat-assessment-2025-2026",
-        "desc": """Outlines emerging cyber risks, like attacks on supply chains or AI-driven scams."""
+        "desc": {
+            "English": "Outlines cyber risks like attacks on supply chains or AI-driven scams.",
+            "中文": "概述了供应链攻击、AI 诈骗等主要网络安全风险。"
+        }
     },
-    {
-        "title": "New to Canada? Beware, you’re twice as likely to become a fraud victim",
-        "url": "https://www.newcanadianmedia.ca/new-to-canada-beware-youre-twice-as-likely-to-become-a-fraud-victim-survey-reveals/",
-        "desc": "What are the most reported types of fraud?"
-    }
 ]
 
-# --- Render each resource as a simple card
+# --- 渲染资源卡片 ---
 for r in resources:
     st.markdown(f"""
     <div class="resource-card">
-        <div class="resource-title"><a href="{r['url']}" target="_blank">{r['title']}</a></div>
-        <div class="resource-desc">{r['desc']}</div>
+        <div class="resource-title"><a href="{r['url']}" target="_blank">{r['title'][lang]}</a></div>
+        <div class="resource-desc">{r['desc'][lang]}</div>
     </div>
     """, unsafe_allow_html=True)
