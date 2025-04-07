@@ -50,12 +50,12 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Logo 左上角
+# --- Logo ---
 logo_base64 = base64.b64encode(open("uoft_logo.png", "rb").read()).decode()
 st.markdown(
     f"""
-    <div style='position: absolute; top: 1rem; left: 2rem;'>
-        <img src='data:image/png;base64,{logo_base64}' width='90'>
+    <div style='text-align: center; margin-top: 1rem;'>
+        <img src='data:image/png;base64,{logo_base64}' width='160'>
     </div>
     """,
     unsafe_allow_html=True
