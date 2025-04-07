@@ -27,8 +27,9 @@ st.markdown("""
             justify-content: center;
             margin-top: 2rem;
         }
+        /* 将卡片背景由白色改为浅蓝色 */
         .card {
-            background-color: white;
+            background-color: #DCEAF4; /* 浅蓝，比 #F0F6FB 略深 */
             padding: 1.5rem 2rem;
             border-radius: 14px;
             text-align: center;
