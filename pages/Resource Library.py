@@ -21,23 +21,22 @@ st.markdown("""
             font-size: 2.6rem;
             color: #002145;
             margin-bottom: 0.3rem;
+            text-align: center;
         }
 
         .subtitle {
             font-size: 1.1rem;
             color: #3c4f60;
             margin-bottom: 2.5rem;
+            text-align: center;
         }
 
         .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            margin-top: 2.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 2rem;
+            padding-top: 2rem;
         }
 
         .card {
@@ -50,7 +49,8 @@ st.markdown("""
             font-size: 1.1rem;
             box-shadow: 0 4px 14px rgba(0,0,0,0.06);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            height: 120px;
+            width: 320px;
+            height: 110px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -69,7 +69,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Header ---
+# --- Header & Subtitle ---
 if lang == "English":
     st.markdown("<h1>Resource Library</h1>", unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>Explore key topics related to privacy, safety, AI, and digital protection in Canada.</div>", unsafe_allow_html=True)
@@ -77,7 +77,7 @@ else:
     st.markdown("<h1>资源库</h1>", unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>浏览有关隐私、安全、人工智能与加拿大数字保护的核心主题。</div>", unsafe_allow_html=True)
 
-# --- Card Titles & Links ---
+# --- Titles and Links ---
 titles = {
     "English": [
         "Newcomer’s Guide to Healthcare & Jobs",
@@ -112,7 +112,7 @@ links = {
     ]
 }
 
-# --- Render Card Grid ---
+# --- Card Grid ---
 st.markdown('<div class="card-grid">', unsafe_allow_html=True)
 
 titles_list = titles["English"] if lang == "English" else titles["中文"]
