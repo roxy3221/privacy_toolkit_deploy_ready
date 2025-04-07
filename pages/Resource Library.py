@@ -83,13 +83,23 @@ titles = {
     ]
 }
 
-links = [
-    "https://privacy-html-subpages.vercel.app/newcomer-guide.html",
-    "https://privacy-html-subpages.vercel.app/how-police-use-data.html",
-    "https://privacy-html-subpages.vercel.app/protecting-yourself-from-scams.html",
-    "https://privacy-html-subpages.vercel.app/understanding-ai-in-canada.html",
-    "https://privacy-html-subpages.vercel.app/staying-safe-online.html"
-]
+# 根据语言调整链接 (HTML页面的链接)
+if lang == "English":
+    links = [
+        "https://privacy-html-subpages.vercel.app/newcomer-guide.html",
+        "https://privacy-html-subpages.vercel.app/how-police-use-data.html",
+        "https://privacy-html-subpages.vercel.app/protecting-yourself-from-scams.html",
+        "https://privacy-html-subpages.vercel.app/understanding-ai-in-canada.html",
+        "https://privacy-html-subpages.vercel.app/staying-safe-online.html"
+    ]
+else:
+    links = [
+        "https://privacy-html-subpages.vercel.app/newcomer-guide-zh.html",
+        "https://privacy-html-subpages.vercel.app/how-police-use-data-zh.html",
+        "https://privacy-html-subpages.vercel.app/protecting-yourself-from-scams-zh.html",
+        "https://privacy-html-subpages.vercel.app/understanding-ai-in-canada-zh.html",
+        "https://privacy-html-subpages.vercel.app/staying-safe-online-zh.html"
+    ]
 
 # --- Render Cards ---
 st.markdown('<div class="card-grid">', unsafe_allow_html=True)
