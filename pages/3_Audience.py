@@ -19,28 +19,31 @@ st.markdown("""
         h2 {
             color: #002145;
             font-size: 1.4rem;
-            margin-top: 1rem;
             margin-bottom: 0.8rem;
+            text-align: center;
         }
         p, li {
-            font-size: 1.02rem;
+            font-size: 1.05rem;
             line-height: 1.6;
         }
         ul {
             margin-top: 0.4rem;
             padding-left: 1.3rem;
+            text-align: left;
         }
         .highlight {
             font-weight: bold;
             margin-top: 1rem;
+            text-align: center;
         }
         .audience-card {
-            max-width: 900px;
-            margin: 1rem auto;
+            max-width: 800px;
+            margin: 1.5rem auto;
             background-color: white;
             padding: 2rem 2.5rem;
-            border-radius: 14px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
         }
         .goal-boxes {
             max-width: 900px;
@@ -62,7 +65,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Top Title (no white background) ---
+# --- Top Title ---
 st.markdown("<h1>Audience Overview</h1>", unsafe_allow_html=True)
 st.markdown("""
 <p style='text-align: center; max-width: 750px; margin: auto;'>This digital privacy toolkit is designed for <strong>newcomers to Canada</strong>, including immigrants, refugees, international students, and other recently arrived residents.</p>
@@ -70,8 +73,9 @@ st.markdown("""
 
 # --- Primary Audience Card ---
 st.markdown('<div class="audience-card">', unsafe_allow_html=True)
-st.markdown("<h2>Primary Audience: New Immigrants (Ages 18–55)</h2>", unsafe_allow_html=True)
+st.markdown("<h2>Primary Audience</h2>", unsafe_allow_html=True)
 st.markdown("""
+<p><strong>New Immigrants (Ages 18–55)</strong></p>
 <ul>
     <li>Often unfamiliar with Canadian digital systems and privacy laws</li>
     <li>More likely to face scams, data misuse, or lack of informed consent</li>
@@ -94,7 +98,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- Toolkit Goals Section (light background) ---
+# --- Toolkit Goals Section ---
 st.markdown('<div class="goal-boxes">', unsafe_allow_html=True)
 st.markdown("<h2>Toolkit Goals</h2>", unsafe_allow_html=True)
 st.markdown("""
