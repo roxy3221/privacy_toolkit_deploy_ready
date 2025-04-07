@@ -33,21 +33,31 @@
       min-height: 3rem;
     }
 
-    p.description {
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .typewriter-text {
+      animation: blink 1s step-end infinite;
+    }
+
+    p {
       font-size: 1.1rem;
       line-height: 1.7;
       margin-top: 2rem;
       color: #34495e;
-      min-height: 4.2rem;
     }
 
     .button-group {
-      margin-top: 2.2rem;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .button-link {
       display: inline-block;
-      margin: 0 1rem;
       padding: 0.8rem 1.6rem;
       background-color: #4a6e8c;
       color: white;
@@ -66,13 +76,18 @@
 <body>
   <div class="container">
     <div class="typewriter-text" id="typewriter"></div>
-    <p class="description" id="description"></p>
+
+    <p id="description">
+      This toolkit helps newcomers to Canada understand privacy rights,
+      protect their personal data, avoid scams, and safely use digital services
+      in their new life in Canada.
+    </p>
 
     <div class="button-group">
       <a class="button-link" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">
-        English / 英文入口
+        Enter Toolkit
       </a>
-      <a class="button-link" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/?lang=zh" target="_blank">
+      <a class="button-link" href="https://privacytoolkitdeployready-feds8simqmupmwnuupdt8t.streamlit.app/" target="_blank">
         中文入口
       </a>
     </div>
@@ -86,39 +101,42 @@
     ];
 
     const descriptions = [
-      "This toolkit helps newcomers understand privacy rights, protect their personal data, avoid scams, and safely use digital services in Canada.",
-      "本工具包帮助新移民了解隐私权、保护个人数据、避免诈骗，并安全使用加拿大的数字服务。",
-      "Cette boîte à outils aide les nouveaux arrivants à comprendre leurs droits en matière de vie privée et à rester en sécurité en ligne au Canada."
+      "This toolkit helps newcomers to Canada understand privacy rights, protect their personal data, avoid scams, and safely use digital services in their new life in Canada.",
+      "本工具包帮助新移民了解隐私权，保护个人数据，避免诈骗，并安全使用加拿大的数字服务。",
+      "Cette boîte à outils aide les nouveaux arrivants au Canada à comprendre leurs droits en matière de vie privée et à naviguer dans le monde numérique en toute sécurité."
     ];
 
     let currentPhrase = 0;
     let currentChar = 0;
     let typing = true;
-    const typewriterEl = document.getElementById("typewriter");
-    const descriptionEl = document.getElementById("description");
+    const el = document.getElementById("typewriter");
+    const desc = document.getElementById("description");
 
     function type() {
       const phrase = phrases[currentPhrase];
+      const description = descriptions[currentPhrase];
 
       if (typing) {
-        typewriterEl.textContent = phrase.substring(0, currentChar + 1);
+        el.textContent = phrase.substring(0, currentChar + 1);
         currentChar++;
+
         if (currentChar === phrase.length) {
           typing = false;
-          descriptionEl.textContent = descriptions[currentPhrase]; // 同步描述
-          setTimeout(type, 2000);
+          desc.textContent = description;
+          setTimeout(type, 1500);  // Pause before deleting
           return;
         }
       } else {
-        typewriterEl.textContent = phrase.substring(0, currentChar - 1);
+        el.textContent = phrase.substring(0, currentChar - 1);
         currentChar--;
+
         if (currentChar === 0) {
           typing = true;
           currentPhrase = (currentPhrase + 1) % phrases.length;
         }
       }
 
-      const delay = typing ? 80 : 40;
+      const delay = typing ? 100 : 40;
       setTimeout(type, delay);
     }
 
