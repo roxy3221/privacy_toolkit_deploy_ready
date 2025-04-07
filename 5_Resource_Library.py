@@ -2,6 +2,12 @@ import streamlit as st
 from sidebar import render_sidebar
 from language import get_language
 
+# — Ensure this runs before any other Streamlit commands —
+st.set_page_config(page_title="Redirecting...", layout="wide")
+
+# — Redirect visitors from “/Resource%20Library” to your new page —
+st.switch_page("pages/5_Resource_Library.py")
+
 # --- Page config ---
 st.set_page_config(page_title="Resource Library", layout="wide")
 
