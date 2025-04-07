@@ -1,22 +1,14 @@
 import streamlit as st
 import base64
+from sidebar import render_sidebar
 
-# ✅ set_page_config 必须放在最前面
+# ✅ 必须放在所有 Streamlit 命令之前
 st.set_page_config(page_title="Privacy Toolkit", layout="wide")
 
-# ✅ 然后再引入 sidebar
-from sidebar import render_sidebar
+# 获取语言 + 激活自定义 sidebar
 lang = render_sidebar()
 
-# 之后是页面内容...
-
-# Page setup
-st.set_page_config(page_title="Privacy Toolkit", layout="wide")
-
-# Language selector
-lang = st.selectbox("Language / 语言", ["English", "中文"], index=0)
-
-# Styling
+# --- Styling ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -61,7 +53,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# UofT Logo
+# --- UofT Logo ---
 logo_base64 = base64.b64encode(open("uoft_logo.png", "rb").read()).decode()
 st.markdown(
     f"""
@@ -72,13 +64,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Animated Title
+# --- Animated Title ---
 if lang == "English":
     st.markdown("<div class='typewriter'>Welcome to the Privacy Toolkit</div>", unsafe_allow_html=True)
 else:
     st.markdown("<div class='typewriter'>欢迎使用隐私工具包</div>", unsafe_allow_html=True)
 
-# Introduction text
+# --- Introduction Text ---
 if lang == "English":
     st.write("""
     This toolkit helps newcomers to Canada understand privacy rights, protect their personal data,
@@ -91,12 +83,13 @@ else:
 
 st.markdown("---")
 
+# --- Section Header ---
 if lang == "English":
     st.subheader("What You’ll Find Here")
 else:
     st.subheader("你将在这里找到")
 
-# Section previews
+# --- Preview Sections ---
 cols = st.columns(3)
 with cols[0]:
     st.markdown(f"<div class='section-box'><strong>{'Privacy Quiz' if lang == 'English' else '隐私小测试'}</strong><br/>{'Test your knowledge with real-life scenarios and tips.' if lang == 'English' else '通过真实情境测试你的隐私意识并获取实用建议。'}</div>", unsafe_allow_html=True)
@@ -107,7 +100,7 @@ with cols[2]:
 
 st.markdown("---")
 
-# Footer Info
+# --- Footer Info ---
 if lang == "English":
     st.info("Use the sidebar on the left to navigate between sections.")
 else:
