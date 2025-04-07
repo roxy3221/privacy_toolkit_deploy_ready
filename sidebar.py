@@ -10,8 +10,7 @@ def render_sidebar():
         "实用网站"
     ]
 
-    # ✅ 加入语言说明标题
-    st.sidebar.markdown("#### 🌐 Language / 语言")
+
 
     # 菜单样式
     st.sidebar.markdown("""
