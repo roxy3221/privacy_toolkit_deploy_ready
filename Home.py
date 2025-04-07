@@ -3,14 +3,14 @@ import base64
 from sidebar import render_sidebar
 from language import get_language
 
-# 页面配置
+# --- 页面配置 ---
 st.set_page_config(page_title="Privacy Toolkit", layout="wide")
 
-# 获取当前语言
+# --- 获取语言并渲染 Sidebar ---
 lang = get_language()
 render_sidebar()
 
-# --- 样式 ---
+# --- 样式设置 ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -21,11 +21,10 @@ st.markdown("""
         body {
             font-family: 'Georgia', serif;
         }
-        .fixed-logo {
+        .logo-small {
             position: absolute;
-            top: 20px;
+            top: 15px;
             left: 30px;
-            z-index: 999;
         }
         .typewriter {
             font-size: 2.75em;
@@ -35,8 +34,7 @@ st.markdown("""
             border-right: 3px solid #002145;
             width: 0;
             animation: typing 3s steps(40, end) forwards, blink 1s infinite;
-            margin-top: 0.5rem;
-            margin-bottom: 1rem;
+            margin: 5rem auto 1.5rem auto;
             text-align: center;
         }
         @keyframes typing {
@@ -53,21 +51,24 @@ st.markdown("""
             background-color: #ffffff;
             height: 100%;
         }
+        .intro-text {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
     </style>
 """, unsafe_allow_html=True)
 
-# --- 左上角 Logo ---
+# --- 缩小 Logo 左上角 ---
 logo_base64 = base64.b64encode(open("uoft_logo.png", "rb").read()).decode()
-st.markdown(
-    f"""
-    <div class='fixed-logo'>
-        <img src='data:image/png;base64,{logo_base64}' width='100'>
+st.markdown(f"""
+    <div class="logo-small">
+        <img src="data:image/png;base64,{logo_base64}" width="80">
     </div>
-    """,
-    unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
-# --- 动画标题 ---
+# --- 打字欢迎动画标题 ---
 st.markdown(
     "<div class='typewriter'>欢迎使用隐私工具包</div>" if lang == "中文"
     else "<div class='typewriter'>Welcome to the Privacy Toolkit</div>",
@@ -76,48 +77,55 @@ st.markdown(
 
 # --- 简介段落 ---
 intro = (
-    "本工具包帮助新移民了解隐私权，保护个人数据，避免诈骗，并安全使用加拿大的数字服务。"
-    if lang == "中文"
-    else "This toolkit helps newcomers to Canada understand privacy rights, protect their personal data, avoid scams, and safely use digital services in their new life in Canada."
+    "This toolkit helps newcomers to Canada understand privacy rights, protect their personal data, avoid scams, and safely use digital services in their new life in Canada."
+    if lang == "English"
+    else "本工具包帮助新移民了解隐私权，保护个人数据，避免诈骗，并安全使用加拿大的数字服务。"
 )
-st.write(intro)
+st.markdown(f"<div class='intro-text'>{intro}</div>", unsafe_allow_html=True)
 
 st.markdown("---")
 
 # --- 子栏目标题 ---
-st.subheader("你将在这里找到" if lang == "中文" else "What You’ll Find Here")
+st.subheader("What You’ll Find Here" if lang == "English" else "你将在这里找到")
 
-# --- 卡片三栏布局 ---
+# --- 三个内容板块卡片 ---
 cols = st.columns(3)
-
 with cols[0]:
-    st.markdown(f"""
+    st.markdown(
+        f"""
         <div class='section-box'>
-            <strong>{'隐私小测试' if lang == '中文' else 'Privacy Quiz'}</strong><br/>
-            {'通过真实情境测试你的隐私意识并获取实用建议。' if lang == '中文' else 'Test your knowledge with real-life scenarios and tips.'}
+            <strong>{'Privacy Quiz' if lang == 'English' else '隐私小测试'}</strong><br/>
+            {'Test your knowledge with real-life scenarios and tips.' if lang == 'English' else '通过真实情境测试你的隐私意识并获取实用建议。'}
         </div>
-    """, unsafe_allow_html=True)
-
+        """,
+        unsafe_allow_html=True
+    )
 with cols[1]:
-    st.markdown(f"""
+    st.markdown(
+        f"""
         <div class='section-box'>
-            <strong>{'资源库' if lang == '中文' else 'Resource Library'}</strong><br/>
-            {'了解隐私法律、数字安全及医疗同意制度。' if lang == '中文' else 'Explore privacy laws, digital safety, and healthcare consent.'}
+            <strong>{'Resource Library' if lang == 'English' else '资源库'}</strong><br/>
+            {'Explore privacy laws, digital safety, and healthcare consent.' if lang == 'English' else '了解隐私法律、数字安全及医疗同意制度。'}
         </div>
-    """, unsafe_allow_html=True)
-
+        """,
+        unsafe_allow_html=True
+    )
 with cols[2]:
-    st.markdown(f"""
+    st.markdown(
+        f"""
         <div class='section-box'>
-            <strong>{'关于本项目' if lang == '中文' else 'About the Project'}</strong><br/>
-            {'了解我们是谁，以及创建本工具包的初衷。' if lang == '中文' else 'Learn who we are and what inspired this toolkit.'}
+            <strong>{'About the Project' if lang == 'English' else '关于本项目'}</strong><br/>
+            {'Learn who we are and what inspired this toolkit.' if lang == 'English' else '了解我们是谁，以及创建本工具包的初衷。'}
         </div>
-    """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True
+    )
 
 st.markdown("---")
 
-# --- 底部蓝色提醒框 ---
+# --- 蓝色提示框 ---
 if lang == "English":
-    st.info("Please use the sidebar on the left to navigate between sections. 中文用户：请切换导航栏中的语言为中文以查看内容（中文导航栏仅供参考，请点击英文导航项浏览）。")
+    st.info("Please use the sidebar on the left to navigate between sections. 
+    中文用户请切换左侧导航栏语言为中文浏览内容。注意：中文导航仅供参考，体验完整内容请点选英文导航")
 else:
-    st.info("中文用户请切换左侧导航栏语言为中文浏览内容，中文导航栏仅供参考，请点击英文项目以正常跳转页面。")
+    st.info("中文用户请选择左侧导航栏中的中文以阅读中文版本。注意：中文导航仅供参考，实际导航请点击英文。")
