@@ -125,7 +125,12 @@ st.markdown("---")
 
 # --- 蓝色提示框 ---
 if lang == "English":
-    st.info("Please use the sidebar on the left to navigate between sections. 
-    中文用户请切换左侧导航栏语言为中文浏览内容。注意：中文导航仅供参考，体验完整内容请点选英文导航")
+    st.info("""
+    Please use the sidebar on the left to navigate between sections.  
+    中文用户请切换左侧导航栏语言为中文浏览内容。注意：中文导航仅供参考，体验完整内容请点选英文导航。
+    """)
 else:
-    st.info("中文用户请选择左侧导航栏中的中文以阅读中文版本。注意：中文导航仅供参考，实际导航请点击英文。")
+    st.info("""
+    中文用户请选择左侧导航栏中的中文以阅读中文版本。  
+    注意：中文导航仅供参考，实际导航请点击英文。
+    """)
