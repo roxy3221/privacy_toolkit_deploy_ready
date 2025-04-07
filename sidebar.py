@@ -1,18 +1,8 @@
 import streamlit as st
 
 def render_sidebar():
-    # 设置语言（默认中文）
-    if "lang" not in st.session_state:
-        st.session_state.lang = "中文"
-
-    # Sidebar - Language Selector
-    lang = st.sidebar.selectbox("🌐 Language / 语言", ["English", "中文"], index=1 if st.session_state.lang == "中文" else 0)
-    st.session_state.lang = lang
-
-    # Sidebar - Custom Navigation
-    st.sidebar.markdown("### 📂 " + ("Page Navigation" if lang == "English" else "页面导航"))
-
-    nav = {
+    # 自定义导航栏（仅中文，不再需要语言切换器）
+    nav_items = {
         "Home": "首页",
         "2_About_Us": "关于我们",
         "3_Audience": "目标受众",
@@ -21,12 +11,23 @@ def render_sidebar():
         "Useful Websites": "实用网站"
     }
 
-    for filename, zh_name in nav.items():
-        label = filename if lang == "English" else zh_name
-        if st.sidebar.button(label):
-            st.switch_page(f"pages/{filename}.py")
+    # 添加自定义导航项，外观跟默认 Sidebar 一致
+    for filename, zh_title in nav_items.items():
+        st.sidebar.markdown(f"""
+            <a href="/{filename.replace(' ', '%20')}" target="_self" style="
+                display: block;
+                padding: 0.4rem 0.75rem;
+                border-radius: 0.5rem;
+                color: #31333F;
+                font-weight: 500;
+                text-decoration: none;
+                margin-bottom: 0.2rem;
+            ">
+                {zh_title}
+            </a>
+        """, unsafe_allow_html=True)
 
-    # 隐藏原生 Sidebar 菜单
+    # 隐藏默认 Sidebar 页面导航
     st.markdown("""
         <style>
         section[data-testid="stSidebarNav"] {
@@ -35,4 +36,5 @@ def render_sidebar():
         </style>
     """, unsafe_allow_html=True)
 
-    return lang
+    # 可选：返回语言常量，方便页面中继续写中文内容（但也可以删掉）
+    return "中文"
