@@ -3,79 +3,98 @@ import streamlit as st
 # --- Page Setup ---
 st.set_page_config(page_title="Audience Overview", layout="wide")
 
-# --- Styling ---
+# --- Custom CSS ---
 st.markdown("""
     <style>
-        html, body, .stApp {
-            background-color: #F0F6FB;
-            font-family: 'Georgia', serif;
-        }
-        h1 {
-            color: #002145;
-            font-size: 2.3rem;
-            margin: 2rem auto 1.2rem auto;
-            text-align: center;
-        }
-        h2 {
-            color: #002145;
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            text-align: center;
-        }
-        p, li {
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-        ul {
-            margin-top: 0.4rem;
-            padding-left: 1.3rem;
-            text-align: left;
-        }
-        .highlight {
-            font-weight: bold;
-            margin-top: 1rem;
-            text-align: center;
-        }
-        .audience-card {
-            max-width: 800px;
-            margin: 1.5rem auto;
-            background-color: white;
-            padding: 2rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-        .goal-boxes {
-            max-width: 900px;
-            margin: 1rem auto 2rem auto;
-            padding: 0 1rem;
-        }
-        .goal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        .goal-item {
-            background-color: #dceaf4;
-            padding: 1rem 1.2rem;
-            border-radius: 10px;
-            border: 1px solid #c5dbe9;
-        }
+    /* 整体页面背景 & 字体 */
+    html, body, .stApp {
+        background-color: #F0F6FB;
+        font-family: 'Georgia', serif;
+    }
+
+    /* 顶部大卡片（Hero Card） */
+    .hero-card {
+        max-width: 700px;           /* 控制卡片宽度 */
+        margin: 3rem auto 2rem;    /* 上下左右外边距 */
+        background-color: #FFFFFF;  /* 白色背景 */
+        border-radius: 14px;        /* 圆角 */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 阴影 */
+        padding: 2rem;             /* 内边距 */
+        text-align: center;        /* 内容居中 */
+        font-size: 1.4rem;         /* 文字大小 */
+        font-weight: 600;          /* 文字粗细 */
+        color: #000;               /* 字体颜色 */
+    }
+
+    /* 观众卡片（Primary / Secondary） */
+    .audience-card {
+        max-width: 800px;
+        margin: 2rem auto;         /* 自动居中 */
+        background-color: #FFFFFF;
+        border-radius: 14px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        padding: 1.5rem 2rem;
+    }
+
+    /* 卡片内的标题 */
+    .audience-card h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+        color: #002145;
+    }
+
+    /* 列表文字大小 & 间距 */
+    .audience-card li {
+        font-size: 1.02rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+    }
+    /* 加粗高亮段落 */
+    .highlight {
+        margin-top: 1rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Goals 区域 */
+    .goal-boxes {
+        max-width: 900px;
+        margin: 1rem auto 2rem auto;
+        padding: 0 1rem;
+    }
+    .goal-boxes h2 {
+        text-align: center;
+        color: #002145;
+        margin-bottom: 1rem;
+    }
+    .goal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    .goal-item {
+        background-color: #dceaf4;
+        padding: 1rem 1.2rem;
+        border-radius: 10px;
+        border: 1px solid #c5dbe9;
+    }
+
     </style>
 """, unsafe_allow_html=True)
 
-# --- Top Title ---
-st.markdown("<h1>Audience Overview</h1>", unsafe_allow_html=True)
+# --- 顶部大卡片（Hero Card） ---
 st.markdown("""
-<p style='text-align: center; max-width: 750px; margin: auto;'>This digital privacy toolkit is designed for <strong>newcomers to Canada</strong>, including immigrants, refugees, international students, and other recently arrived residents.</p>
+<div class="hero-card">
+    Newcomer’s Guide to Healthcare & Jobs
+</div>
 """, unsafe_allow_html=True)
 
 # --- Primary Audience Card ---
 st.markdown('<div class="audience-card">', unsafe_allow_html=True)
 st.markdown("<h2>Primary Audience</h2>", unsafe_allow_html=True)
 st.markdown("""
-<p><strong>New Immigrants (Ages 18–55)</strong></p>
+<p style="text-align:center"><strong>New Immigrants (Ages 18–55)</strong></p>
 <ul>
     <li>Often unfamiliar with Canadian digital systems and privacy laws</li>
     <li>More likely to face scams, data misuse, or lack of informed consent</li>
@@ -98,7 +117,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
-# --- Toolkit Goals Section ---
+# --- Toolkit Goals Section (可按需保留或修改) ---
 st.markdown('<div class="goal-boxes">', unsafe_allow_html=True)
 st.markdown("<h2>Toolkit Goals</h2>", unsafe_allow_html=True)
 st.markdown("""
