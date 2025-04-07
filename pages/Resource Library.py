@@ -31,38 +31,29 @@ st.markdown("""
             text-align: center;
         }
 
-        .card-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            padding-top: 2rem;
-        }
-
         .card {
             background-color: #DCEAF4;
-            padding: 1.5rem 2rem;
+            padding: 1.5rem 1.8rem;
             border-radius: 14px;
             font-weight: bold;
             color: #1a1a1a;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             box-shadow: 0 4px 14px rgba(0,0,0,0.06);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            width: 320px;
-            height: 110px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            height: 100px;
         }
 
         .card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        .card:visited, .card:link, .card:hover {
+        .card:visited, .card:link {
             color: #1a1a1a;
             text-decoration: none;
         }
@@ -77,7 +68,7 @@ else:
     st.markdown("<h1>资源库</h1>", unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>浏览有关隐私、安全、人工智能与加拿大数字保护的核心主题。</div>", unsafe_allow_html=True)
 
-# --- Titles and Links ---
+# --- Titles & Links ---
 titles = {
     "English": [
         "Newcomer’s Guide to Healthcare & Jobs",
@@ -112,17 +103,24 @@ links = {
     ]
 }
 
-# --- Card Grid ---
-st.markdown('<div class="card-grid">', unsafe_allow_html=True)
-
+# --- Render in 2 columns ---
 titles_list = titles["English"] if lang == "English" else titles["中文"]
 links_list = links["English"] if lang == "English" else links["中文"]
 
-for title, link in zip(titles_list, links_list):
-    st.markdown(f"""
-        <a href="{link}" target="_blank" class="card">
-            {title}
-        </a>
-    """, unsafe_allow_html=True)
+num_cards = len(titles_list)
 
-st.markdown('</div>', unsafe_allow_html=True)
+for i in range(0, num_cards, 2):
+    cols = st.columns(2)
+    
+    # Left column
+    with cols[0]:
+        st.markdown(f'<a class="card" href="{links_list[i]}" target="_blank">{titles_list[i]}</a>', unsafe_allow_html=True)
+
+    # Right column (only render if exists)
+    if i + 1 < num_cards:
+        with cols[1]:
+            st.markdown(f'<a class="card" href="{links_list[i+1]}" target="_blank">{titles_list[i+1]}</a>', unsafe_allow_html=True)
+    else:
+        # If it's the last one and no right column, center it
+        with cols[1]:
+            st.write("")
