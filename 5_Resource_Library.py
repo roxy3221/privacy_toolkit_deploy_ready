@@ -2,20 +2,14 @@ import streamlit as st
 from sidebar import render_sidebar
 from language import get_language
 
-# — Ensure this runs before any other Streamlit commands —
-st.set_page_config(page_title="Redirecting...", layout="wide")
-
-# — Redirect visitors from “/Resource%20Library” to your new page —
-st.switch_page("pages/5_Resource_Library.py")
-
-# --- Page config ---
+# --- Page Config ---
 st.set_page_config(page_title="Resource Library", layout="wide")
 
-# --- Language + Sidebar ---
+# --- Language & Sidebar ---
 lang = get_language()
 render_sidebar()
 
-# --- CSS Styling ---
+# --- Styling ---
 st.markdown("""
     <style>
         html, body, .stApp {
@@ -63,7 +57,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Title & Subtitle ---
+# --- Header & Subtitle ---
 if lang == "English":
     st.markdown("<h1>Resource Library</h1>", unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>Explore key topics related to privacy, safety, AI, and digital protection in Canada.</div>", unsafe_allow_html=True)
@@ -71,7 +65,7 @@ else:
     st.markdown("<h1>资源库</h1>", unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>浏览有关隐私、安全、人工智能与加拿大数字保护的核心主题。</div>", unsafe_allow_html=True)
 
-# --- Cards (titles & links) ---
+# --- Card Titles & Links ---
 titles = {
     "English": [
         "Newcomer’s Guide to Healthcare & Jobs",
@@ -97,7 +91,7 @@ links = [
     "https://privacy-html-subpages.vercel.app/staying-safe-online.html"
 ]
 
-# --- Render card grid ---
+# --- Render Cards ---
 st.markdown('<div class="card-grid">', unsafe_allow_html=True)
 for title, link in zip(titles["English" if lang == "English" else "中文"], links):
     st.markdown(f"""
