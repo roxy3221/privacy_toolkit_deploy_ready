@@ -1,33 +1,25 @@
 import streamlit as st
 
 def render_sidebar():
-    # 自定义导航栏（仅中文，不再需要语言切换器）
+    # 当前页面名（用于避免跳转到自己）
+    current_page = st.session_state.get("_page_current", None)
+
+    # 中文菜单映射（键是文件名，值是显示名）
     nav_items = {
-        "Home": "首页",
-        "2_About_Us": "关于我们",
-        "3_Audience": "目标受众",
-        "4_Quiz": "小测试",
-        "Resource Library": "资源库",
-        "Useful Websites": "实用网站"
+        "Home.py": "首页",
+        "2_About_Us.py": "关于我们",
+        "3_Audience.py": "目标受众",
+        "4_Quiz.py": "小测试",
+        "Resource Library.py": "资源库",
+        "Useful Websites.py": "实用网站"
     }
 
-    # 添加自定义导航项，外观跟默认 Sidebar 一致
-    for filename, zh_title in nav_items.items():
-        st.sidebar.markdown(f"""
-            <a href="/{filename.replace(' ', '%20')}" target="_self" style="
-                display: block;
-                padding: 0.4rem 0.75rem;
-                border-radius: 0.5rem;
-                color: #31333F;
-                font-weight: 500;
-                text-decoration: none;
-                margin-bottom: 0.2rem;
-            ">
-                {zh_title}
-            </a>
-        """, unsafe_allow_html=True)
+    # 菜单渲染（排除当前页面，避免重复跳转）
+    for filename, label in nav_items.items():
+        if current_page != filename and st.sidebar.button(label):
+            st.switch_page(f"pages/{filename}")
 
-    # 隐藏默认 Sidebar 页面导航
+    # 隐藏默认英文菜单
     st.markdown("""
         <style>
         section[data-testid="stSidebarNav"] {
@@ -36,5 +28,4 @@ def render_sidebar():
         </style>
     """, unsafe_allow_html=True)
 
-    # 可选：返回语言常量，方便页面中继续写中文内容（但也可以删掉）
     return "中文"
