@@ -21,10 +21,6 @@ st.markdown("""
         body {
             font-family: 'Georgia', serif;
         }
-        .element-container:has(.stAlert) {
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
         .typewriter {
             font-size: 2.75em;
             color: #002145;
@@ -33,8 +29,8 @@ st.markdown("""
             border-right: 3px solid #002145;
             width: 0;
             animation: typing 3s steps(40, end) forwards, blink 1s infinite;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
+            margin-top: 4rem;  /* ✅ 更大上边距，避免覆盖 logo */
+            margin-bottom: 1.5rem;
             text-align: center;
         }
         @keyframes typing {
