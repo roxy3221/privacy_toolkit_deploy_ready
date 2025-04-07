@@ -10,6 +10,10 @@ def render_sidebar():
         "实用网站"
     ]
 
+    # ✅ 加入语言说明标题
+    st.sidebar.markdown("#### 🌐 Language / 语言")
+
+    # 菜单样式
     st.sidebar.markdown("""
         <style>
         .sidebar-chinese-menu p {
@@ -20,6 +24,7 @@ def render_sidebar():
         </style>
     """, unsafe_allow_html=True)
 
+    # 菜单项
     st.sidebar.markdown("<div class='sidebar-chinese-menu'>" + "\n".join(
         [f"<p>{item}</p>" for item in menu]
     ) + "</div>", unsafe_allow_html=True)
