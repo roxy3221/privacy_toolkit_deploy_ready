@@ -103,4 +103,5 @@ st.markdown("---")
 if lang == "English":
     st.info("Use the sidebar on the left to view each section.")
 else:
-    st.info("当前页面显示为中文，但页面导航仍需通过英文标题点击。如需切换页面，请使用主页顶部语言选择功能。</p>")
+    st.info("当前页面显示为中文，但页面导航仍需通过英文标题点击。如需切换页面，请使用主页顶部语言选择功能。
+    </p>")
