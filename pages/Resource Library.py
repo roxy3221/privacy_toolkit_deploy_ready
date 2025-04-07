@@ -30,11 +30,14 @@ st.markdown("""
         }
 
         .card-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem 2rem;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .card {
@@ -47,13 +50,11 @@ st.markdown("""
             font-size: 1.1rem;
             box-shadow: 0 4px 14px rgba(0,0,0,0.06);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            width: 300px;
-            min-height: 120px;               /* ✅ 防止卡片高度不一致 */
-            display: flex;                   /* ✅ 卡片内容居中 */
+            height: 120px;
+            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            word-break: break-word;          /* ✅ 中文断行处理 */
         }
 
         .card:hover {
@@ -68,7 +69,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- Header & Subtitle ---
+# --- Header ---
 if lang == "English":
     st.markdown("<h1>Resource Library</h1>", unsafe_allow_html=True)
     st.markdown("<div class='subtitle'>Explore key topics related to privacy, safety, AI, and digital protection in Canada.</div>", unsafe_allow_html=True)
@@ -111,12 +112,17 @@ links = {
     ]
 }
 
-# --- Render Cards ---
+# --- Render Card Grid ---
 st.markdown('<div class="card-grid">', unsafe_allow_html=True)
-for title, link in zip(titles[lang], links[lang]):
+
+titles_list = titles["English"] if lang == "English" else titles["中文"]
+links_list = links["English"] if lang == "English" else links["中文"]
+
+for title, link in zip(titles_list, links_list):
     st.markdown(f"""
         <a href="{link}" target="_blank" class="card">
             {title}
         </a>
     """, unsafe_allow_html=True)
+
 st.markdown('</div>', unsafe_allow_html=True)
