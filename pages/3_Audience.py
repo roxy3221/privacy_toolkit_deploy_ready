@@ -3,14 +3,22 @@ import streamlit as st
 # --- Page Setup ---
 st.set_page_config(page_title="Audience Overview", layout="wide")
 
-# --- 自定义样式：只保留浅蓝背景，去掉白色卡片 ---
+# --- 自定义样式：浅蓝背景、expander 标题字体增大 ---
 st.markdown("""
     <style>
     /* 页面整体背景 & 字体 */
     html, body, .stApp {
-        background-color: #F0F6FB; /* 浅蓝色 */
+        background-color: #F0F6FB; /* 浅蓝色背景 */
         font-family: 'Georgia', serif;
     }
+    
+    /* 修改下拉 section 的标题样式 */
+    div[data-testid="stExpander"] > div > div > button {
+        font-size: 1.5rem;   /* 增大标题字体 */
+        font-weight: bold;
+        color: #002145;
+    }
+    
     /* Goals 区域 */
     .goal-boxes {
         max-width: 900px;
@@ -37,11 +45,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- 页面标题（可自定义） ---
+# --- 页面标题 ---
 st.title("Audience Overview")
 
 # --- Primary Audience 下拉 ---
-with st.expander("Primary Audience"):
+with st.expander("Primary Audience - New Immigrants(Ages 18–55)"):
     st.write("""
     - Often unfamiliar with certain systems or privacy laws
     - More likely to face scams, data misuse, or lack of informed consent
@@ -57,7 +65,7 @@ with st.expander("Secondary & Tertiary Audiences"):
     - Mental health professionals recognizing privacy as part of well-being
     """)
 
-# --- Toolkit Goals（保持原布局，仅去除“newcomer”字样） ---
+# --- Toolkit Goals 区域 ---
 st.markdown('<div class="goal-boxes">', unsafe_allow_html=True)
 st.markdown("<h2>Toolkit Goals</h2>", unsafe_allow_html=True)
 st.markdown("""
