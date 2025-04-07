@@ -70,9 +70,9 @@ st.markdown(
 
 # ✅ 蓝色提示框放在标题下方
 if lang == "English":
-    st.info("Please use the sidebar on the left to navigate between sections.")
+    st.info("📌 Please use the sidebar on the left to navigate between sections.")
 else:
-    st.info("中文用户请切换左侧导航栏语言至中文项查看内容（中文导航栏仅供参考）。点击英文导航项仍可正常浏览。")
+    st.info("📌 中文用户请选择左侧导航栏中的中文项查看内容（仅供参考）。点击英文导航项仍可正常浏览。")
 
 # --- 简介段落 ---
 intro = (
