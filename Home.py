@@ -1,14 +1,15 @@
 import streamlit as st
 import base64
 from sidebar import render_sidebar
+from language import get_language  # ✅ 使用全站语言控制
 
-# ✅ 页面配置必须最先执行
+# 页面设置
 st.set_page_config(page_title="Privacy Toolkit", layout="wide")
 
-# ✅ 页面顶部语言切换器（默认英文）
-lang = st.selectbox("🌐 Language / 语言", ["English", "中文"], index=0)
+# 获取当前语言（来自 session）
+lang = get_language()
 
-# ✅ 显示简洁中文 Sidebar 目录（纯展示用）
+# 显示中文 sidebar 目录（静态）
 render_sidebar()
 
 # --- 样式 ---
