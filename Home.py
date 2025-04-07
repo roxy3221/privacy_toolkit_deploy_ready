@@ -1,8 +1,14 @@
 import streamlit as st
 import base64
-from sidebar import render_sidebar
 
+# ✅ set_page_config 必须放在最前面
+st.set_page_config(page_title="Privacy Toolkit", layout="wide")
+
+# ✅ 然后再引入 sidebar
+from sidebar import render_sidebar
 lang = render_sidebar()
+
+# 之后是页面内容...
 
 # Page setup
 st.set_page_config(page_title="Privacy Toolkit", layout="wide")
